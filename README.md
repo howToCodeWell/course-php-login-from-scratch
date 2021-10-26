@@ -1,6 +1,12 @@
-# ~ Course title ~
+# PHP Login
 
-~ Course description ~
+This course teaches how to login, logout and manage sessions in PHP.
+
+# What you will learn
+- Create HTML login form
+- PHP session management
+- Secure PHP pages
+- Header redirection
 
 URL: ~ Place url here ~
 

@@ -4,9 +4,9 @@
 - [Learner requirements](#learner-requirements)
 
 ## System requirements
-- ~ System requirement 1 ~
-- ~ System requirement 2 ~
-- ~ System requirement 3 ~
+- PHP 8+
+- Windows, MacOS, Linux
+- Browser (Chrome)
 
 ## Learner requirements
 - ~ Learner requirement 1 ~
