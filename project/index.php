@@ -1,6 +1,10 @@
 <?php
-// 1 - Check if user has already logged in
-// 2 - If logged in redirect to /dashboard.php
-// 3 - If not logged in display login form
+session_start();
+require_once 'common.php';
 
-echo 'You must be logged in';
+if(isLoggedIn()){
+    header('Location: /dashboard.php');
+    exit;
+}
+header('Location: /login.php');
+exit;
