@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'common.php';
+require_once '../common.php';
 
 $hasLoggedIn = isLoggedIn();
 if (false === $hasLoggedIn) {
