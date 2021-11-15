@@ -1,13 +1,6 @@
 <?php
-
-
-// Get the user data
-$userConfig = include 'config/userConfig.php';
-// 1 - Check if user has already logged in
-// 2 - If logged in display the dashboard
-
-// User is logged in
-$orderConfig = require_once 'config/orderConfig.php';
+session_start();
+require_once 'common.php';
 
 $hasLoggedIn = isLoggedIn();
 if (false === $hasLoggedIn) {
@@ -16,57 +9,35 @@ if (false === $hasLoggedIn) {
     exit;
 }
 $userName = getUsername();
-$order = getOrder($orderConfig, $userName);
+$orders = getOrders($userName);
+?>
 
-function isLoggedIn(): bool
-{
-    return false;
-}
+<html lang="en">
+<body>
+<p>Welcome, <?php echo $userName; ?> <a href="logout.php">logout</a> </p>
 
-function getUsername(): string
-{
-    return 'howtocodewell1';
-}
+<table>
+    <thead>
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Date ordered</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($orders['items'] as $item) : ?>
+        <tr>
+            <td><img src="<?php echo $item['product_image']; ?>"/></td>
+            <td><?php echo $item['product_name']; ?></td>
+            <td><?php echo $item['product_price']; ?></td>
+            <td><?php echo $item['order_date']; ?></td>
+        </tr>
+    <?php endforeach; ?>
 
 
-function getOrder(array $config, string $userName): ?array
-{
-    foreach ($config as $order) {
-        if ($order['user'] === $userName) {
-            return $order;
-        }
-    }
+    </tbody>
+</table>
 
-    return null;
-}
-
-function displayDashboard(string $userName, array $order): string
-{
-    $HTML = "<p>Welcome, " . $userName . "</p>";
-    $HTML .= "<table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Date ordered</th>
-                    </tr>
-                </thead>
-                <tbody>";
-    foreach ($order['items'] as $item) {
-        /* @var DateTime $orderDate */
-        $orderDate = $item['order_date'];
-        $HTML .= "<tr>
-                        <td><img src='" . $item['product_image'] . "' /></td>
-                        <td>" . $item['product_name'] . "</td>
-                        <td>" . $item['product_price'] . "</td>
-                        <td>" . $orderDate->format('d/m/Y h:m:i') . "</td>
-                    </tr>";
-    }
-
-    $HTML .= "</tbody></table>";
-
-    return $HTML;
-}
-
-echo displayDashboard($userName, $order);
+</body>
+</html>
