@@ -10,6 +10,7 @@ if (false === $hasLoggedIn) {
 }
 $userName = getUsername();
 $orders = getOrders($userName);
+$items = $orders['items'] ?? [];
 ?>
 
 <html lang="en">
@@ -26,7 +27,7 @@ $orders = getOrders($userName);
     </tr>
     </thead>
     <tbody>
-    <?php foreach ($orders['items'] as $item) : ?>
+    <?php foreach ($items as $item) : ?>
         <tr>
             <td><img src="<?php echo $item['product_image']; ?>"/></td>
             <td><?php echo $item['product_name']; ?></td>

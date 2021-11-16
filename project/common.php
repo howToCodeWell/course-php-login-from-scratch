@@ -16,14 +16,17 @@ function getUser(string $username, string $password): ?string
     return null;
 }
 
-function getOrders(string $userName): ?array
+/**
+ * @param string $userName
+ * @return null|array{user: string,'items': array{ array{'product_image': string,'product_name': string, 'product_price':int, 'order_date': string}}}
+ */
+function getOrders(string $userName):  ?array
 {
     foreach (ORDER_CONFIG as $order) {
         if ($order['user'] === $userName) {
             return $order;
         }
     }
-
     return null;
 }
 
@@ -45,7 +48,7 @@ function getUsername(): string
 
 }
 
-function logout()
+function logout(): void
 {
     unset($_SESSION['user_key']);
 }
