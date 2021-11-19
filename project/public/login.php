@@ -26,25 +26,28 @@ if ($hasSubmitted) {
 
 ?>
 <html lang="en">
-<body>
+    <head>
 
-<?php if (!empty($error)) : ?>
-    <p><?php echo $error; ?></p>
-<?php endif; ?>
+    </head>
+        <body>
 
-<form id="loginForm" method="post" action="login.php">
-    <fieldset>
-        <label for="username">
-            Username
-        </label>
-        <input type="text" id="username" name="username" required/>
-        <label for="password">
-            Password
-        </label>
-        <input type="text" id="password" name="password" required />
+        <?php if (!empty($error)) : ?>
+            <p><?php echo $error; ?></p>
+        <?php endif; ?>
 
-        <input type="submit" value="Login" name="submit" required />
-    </fieldset>
-</form>
-</body>
+        <form id="loginForm" method="post" action="login.php">
+            <fieldset>
+                <label for="username">
+                    Username
+                </label>
+                <input type="text" id="username" name="username" required/>
+                <label for="password">
+                    Password
+                </label>
+                <input type="password" id="password" name="password" required />
+
+                <input type="submit" value="Login" name="submit" required />
+            </fieldset>
+        </form>
+    </body>
 </html>
