@@ -218,7 +218,7 @@ Time: 72ms; Memory: 6MB
 
 ## Configure PHPStan
 To configure PHPStan add the following `phpstan.neon` to the project root:
-```yaml
+```ini
 parameters:
 	level: 9
 	paths:
