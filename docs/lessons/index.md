@@ -1,10 +1,15 @@
 # Lessons in this course
 
-- [Building login form](lesson_1.md)
-- [Building dashboard](lesson_1.md)
-- [PHP session setup](lesson_1.md)
-- [Handle login](lesson_1.md)
-- [Handle logout](lesson_1.md)
-- [Secure pages](lesson_1.md)
+0. [Course introduction](lesson_0.md)
+1. [Install the project](lesson_1.md)
+2. [Build the login form](lesson_2.md)
+3. [Build the secure area](lesson_3.md)
+4. [Style the login form](lesson_4.md)
+5. [Style the secure area](lesson_5.md)
+6. [Create PHP user config](lesson_6.md)
+7. [Create PHP order config](lesson_7.md)
+8. [Handle user login](lesson_8.md)
+9. [Handle user logout](lesson_9.md)
+10. [Handle secure area](lesson_10.md)
 
 [Go back to readme](../../README.md)

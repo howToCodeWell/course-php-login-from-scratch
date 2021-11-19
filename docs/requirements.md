@@ -5,11 +5,13 @@
 
 ## System requirements
 - PHP 8+
+- PHP Xdebug 3.1.1
 - Windows, MacOS, Linux
+- Make
 - Browser (Chrome)
 
 ## Learner requirements
-- ~ Learner requirement 1 ~
+- Have a basic understanding of the command line
 - ~ Learner requirement 2 ~
 - ~ Learner requirement 3 ~
 
