@@ -20,6 +20,8 @@
 8. [Run PHP Code Sniffer](lesson_1.md#run-php-code-sniffer)
 9. [Configure PHPStan](lesson_1.md#configure-phpstan)
 10. [Run PHPStan](lesson_1.md#run-phpstan)
+11. [Create a Makefile](lesson_1.md#create-a-makefile)
+12. [Check the folder structure](lesson_1.md#check-the-folder-structure)
 
 ## Project setup
 Create a new folder called `project`
@@ -228,6 +230,58 @@ Note: Using configuration file /path/to/code/course/course-php-login/project/php
                                                                                                                         
 ```
 
+## Create a Makefile
+We now have a lot of commands that require different arguments and options. To make it easier to run these commands we are going to create a Makefile which we can use to automate these commands.
+Create a file called `Makefile` in the project root.
+Include the following set of rules:
+
+```bash
+test-stan:
+	./vendor/bin/phpstan
+
+test-unit:
+	./vendor/bin/phpunit tests
+
+test-unit-coverage:
+	export XDEBUG_MODE=coverage && ./vendor/bin/phpunit --coverage-html reports tests
+
+test-lint:
+	./vendor/bin/phpcs --standard=coding_standard.xml common.php tests public config
+
+clean:
+	./vendor/bin/phpcbf --standard=coding_standard.xml common.php tests public config
+
+test: test-lint test-stan test-unit
+```
+
+These are the following make commands:
+
+1. To run PHPStan `make test-stan`
+2. To run PHPUnit `make test-unit`
+3. To run PHPUnit with code coverage `make test-unit-coverage`
+4. To PHP Code Sniffer `make test-lint`
+5. To automatically clean the code with PHP Code Beautifier and Fixer `make clean`
+
+## Check the folder structure
+Your project folder should look like this.  If it doesn't then please review steps above.
+```
+project/
+│   .gitignore
+│   coding_standard.xml
+│   common.php
+│   composer.phar
+│   composer.json
+│   composer.lock
+│   Makefile
+│   phpstan.neon
+│   phpunit.xml
+│
+└───config/
+└───public/
+└───reports/
+└───tests/
+└───vendor/
+```
 [Go to lesson index](index.md)
 
 [Go back to readme](../../README.md)
