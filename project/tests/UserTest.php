@@ -1,6 +1,11 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+namespace Test;
+
 use PHPUnit\Framework\TestCase;
-require_once dirname(__FILE__).'/../common.php';
+
+//require_once dirname(__FILE__) . '/../common.php';
 
 class UserTest extends TestCase
 {
@@ -28,5 +33,19 @@ class UserTest extends TestCase
         $_SESSION['user_key'] = $userKey;
         $this->assertSame($username, getUsername());
     }
-}
 
+    public function testGetUserWithEmptyCredentials(): void
+    {
+        $this->assertNull(getUser('', ''));
+    }
+
+    public function testGetUserWithIncorrectCredentials(): void
+    {
+        $this->assertNull(getUser('howtocodewell1', 'not-valid'));
+    }
+
+    public function testGetUserWithCorrectCredentials(): void
+    {
+        $this->assertSame('user_1', getUser('howtocodewell1', 'testHTCW'));
+    }
+}

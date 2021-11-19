@@ -1,6 +1,7 @@
 <?php
+// phpcs:disable PSR2.Files.SideEffects.FoundWithSymbols
 $userConfig = include_once 'config/userConfig.php';
-$orderConfig = require_once 'config/orderConfig.php';
+$orderConfig = include_once 'config/orderConfig.php';
 
 define('USER_CONFIG', $userConfig);
 define('ORDER_CONFIG', $orderConfig);
@@ -18,9 +19,20 @@ function getUser(string $username, string $password): ?string
 
 /**
  * @param string $userName
- * @return null|array{user: string,'items': array{ array{'product_image': string,'product_name': string, 'product_price':int, 'order_date': string}}}
+ * @return null|array{
+ *      user: string,
+ *      items: array{
+ *          array{
+ *              'product_image': string,
+ *              'product_name': string,
+ *              'product_price':int,
+ *              'order_date': string
+ *          }
+ *      }
+ * }
+ *
  */
-function getOrders(string $userName):  ?array
+function getOrders(string $userName): ?array
 {
     foreach (ORDER_CONFIG as $order) {
         if ($order['user'] === $userName) {
@@ -45,7 +57,6 @@ function getUsername(): string
 {
     $userKey = getUserKey();
     return (USER_CONFIG[$userKey]['username']) ?? '';
-
 }
 
 function logout(): void
