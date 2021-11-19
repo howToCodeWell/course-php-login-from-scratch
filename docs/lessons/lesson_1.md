@@ -8,14 +8,18 @@
  - How to configure and run PHPStan
  - How to use a Makefile
 
-# Lesson notes
+# Lesson sections
 
-- [Project setup](lesson_1.md#project-setup)
-- [Download Composer](lesson_1.md#download-composer)
-- [Configure Composer](lesson_1.md#configure-composer)
-- [Run Composer](lesson_1.md#run-composer)
-- [Configure PHPUnit](lesson_1.md#configure-phpunit)
-- [Run PHPUnit](lesson_1.md#run-phpunit)
+1. [Project setup](lesson_1.md#project-setup)
+2. [Download Composer](lesson_1.md#download-composer)
+3. [Configure Composer](lesson_1.md#configure-composer)
+4. [Run Composer](lesson_1.md#run-composer)
+5. [Configure PHPUnit](lesson_1.md#configure-phpunit)
+6. [Run PHPUnit](lesson_1.md#run-phpunit)
+7. [Configure PHP Code Sniffer](lesson_1.md#configure-php-code-sniffer)
+8. [Run PHP Code Sniffer](lesson_1.md#run-php-code-sniffer)
+9. [Configure PHPStan](lesson_1.md#configure-phpstan)
+10. [Run PHPStan](lesson_1.md#run-phpstan)
 
 ## Project setup
 Create a new folder called `project`
@@ -37,13 +41,18 @@ vendor
 reports
 !reports/.gitkeep
 ```
+A single PHP file will be used to hold common functions.  Create a file called `common.php` in the project route.  For now this will be an empty PHP file so just include the following:
+```php
+<?php
 
+```
 ## Download Composer
 In order to install the required PHP packages we need to install a PHP package manager called Composer.  This can be downloaded from [their website](https://getcomposer.org/).
 Once composer has been installed you should have a `composer.phar` file the project root.
 ```
 project/
 │   composer.phar
+│   common.php
 │
 └───config/
 └───public/
@@ -78,6 +87,7 @@ Create a `composer.json` file in the project root and include `phpunit/phpunit`,
 project/
 │   composer.phar
 │   composer.json
+│   common.php
 │
 └───config/
 └───public/
@@ -96,6 +106,7 @@ project/
 │   composer.phar
 │   composer.json
 │   composer.lock
+│   common.php
 │
 └───config/
 └───public/
@@ -150,6 +161,7 @@ project/
 │   composer.phar
 │   composer.json
 │   composer.lock
+│   common.php
 │
 └───.phpunit.cache/
 └───config/
@@ -157,6 +169,63 @@ project/
 └───reports/
 └───tests/
 └───vendor/
+```
+## Configure PHP Code Sniffer
+To ensure that our code conforms to good coding standards we need to configure the PHP Code Sniffer.
+Create a xml file called `coding_standard.xml` in the project root and include the following.
+```xml
+<?xml version="1.0"?>
+<ruleset name="course">
+    <description>Course coding standard.</description>
+    <rule ref="PSR2" />
+</ruleset>
+```
+This will ensure that we are following the PSR2 coding standard. We can add other rules to the ruleset if we want to. 
+
+## Run PHP Code Sniffer
+To make sure the PHP Code Sniffer works lets try it against our blank project.
+Run the following command:
+```bash
+./vendor/bin/phpcs --standard=coding_standard.xml common.php tests public config
+```
+If it works then no error or output will be reported
+
+The PHP Code Sniffer also comes with a command that will automatically fix any linting errors for use.  This command is called `phpcbf`. To run `phpcbf` enter the following in the terminal and press enter:
+```bash
+./vendor/bin/phpcbf --standard=coding_standard.xml common.php tests public config
+```
+You should see the following output:
+```bash
+No fixable errors were found
+
+Time: 72ms; Memory: 6MB
+```
+## Configure PHPStan
+To configure PHPStan add the following `phpstan.neon` to the project root:
+```yaml
+parameters:
+	level: 9
+	paths:
+		- config
+		- tests
+		- public
+		- common.php
+```
+
+## Run PHPStan
+Let's run PHPStan to make sure it is set up correctly. Run the following command:
+```bash
+./vendor/bin/phpstan
+```
+Your output should be similar to the following
+
+```bash
+Note: Using configuration file /path/to/code/course/course-php-login/project/phpstan.neon.
+ 0/0 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%
+
+                                                                                                                        
+ [OK] No errors                                                                                                         
+                                                                                                                        
 ```
 
 [Go to lesson index](index.md)
