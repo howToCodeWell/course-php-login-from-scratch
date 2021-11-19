@@ -48,7 +48,7 @@ A single PHP file will be used to hold common functions.  Create a file called `
 <?php
 
 ```
-[^ Back to top](lesson_1.md)
+[^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Download Composer
 In order to install the required PHP packages we need to install a PHP package manager called Composer.  This can be downloaded from [their website](https://getcomposer.org/).
@@ -63,7 +63,7 @@ project/
 └───reports/
 └───tests/
 ```
-[^ Back to top](lesson_1.md)
+[^ Back to top](lesson_1.md#what-you-will-learn)
 ## Configure Composer
 Create a `composer.json` file in the project root and include `phpunit/phpunit`, `phpstan/phpstan`, `squizlabs/php_codesniffer` with the versions shown below
 
@@ -98,7 +98,7 @@ project/
 └───reports/
 └───tests/
 ```
-[^ Back to top](lesson_1.md)
+[^ Back to top](lesson_1.md#what-you-will-learn)
 ## Run Composer
 
 Run the following command in the terminal to install the composer packages.
@@ -119,7 +119,7 @@ project/
 └───tests/
 └───vendor/
 ```
-[^ Back to top](lesson_1.md)
+[^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Configure PHPUnit
 1. Run the following command in a terminal
@@ -146,7 +146,7 @@ to
 ```
 This will change the folder for test coverage.
 
-[^ Back to top](lesson_1.md)
+[^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Run PHPUnit
 Let's test if PHPUnit has been configured. Run the following command
@@ -179,7 +179,7 @@ project/
 └───vendor/
 ```
 
-[^ Back to top](lesson_1.md)
+[^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Configure PHP Code Sniffer
 To ensure that our code conforms to good coding standards we need to configure the PHP Code Sniffer.
@@ -193,7 +193,7 @@ Create a xml file called `coding_standard.xml` in the project root and include t
 ```
 This will ensure that we are following the PSR2 coding standard. We can add other rules to the ruleset if we want to. 
 
-[^ Back to top](lesson_1.md)
+[^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Run PHP Code Sniffer
 To make sure the PHP Code Sniffer works lets try it against our blank project.
@@ -214,7 +214,7 @@ No fixable errors were found
 Time: 72ms; Memory: 6MB
 ```
 
-[^ Back to top](lesson_1.md)
+[^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Configure PHPStan
 To configure PHPStan add the following `phpstan.neon` to the project root:
@@ -227,7 +227,7 @@ parameters:
 		- public
 		- common.php
 ```
-[^ Back to top](lesson_1.md)
+[^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Run PHPStan
 Let's run PHPStan to make sure it is set up correctly. Run the following command:
@@ -244,7 +244,7 @@ Note: Using configuration file /path/to/code/course/course-php-login/project/php
  [OK] No errors                                                                                                         
                                                                                                                         
 ```
-[^ Back to top](lesson_1.md)
+[^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Create a Makefile
 We now have a lot of commands that require different arguments and options. To make it easier to run these commands we are going to create a Makefile which we can use to automate these commands.
@@ -278,7 +278,7 @@ These are the following make commands:
 4. To PHP Code Sniffer `make test-lint`
 5. To automatically clean the code with PHP Code Beautifier and Fixer `make clean`
 
-[^ Back to top](lesson_1.md)
+[^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Check the folder structure
 Your project folder should look like this.  If it doesn't then please review steps above.
@@ -300,7 +300,7 @@ project/
 └───tests/
 └───vendor/
 ```
-[^ Back to top](lesson_1.md) 
+[^ Back to top](lesson_1.md#what-you-will-learn)
 
 [Go to lesson index](index.md) 
 [Go back to readme](../../README.md)
