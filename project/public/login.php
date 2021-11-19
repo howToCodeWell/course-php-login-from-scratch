@@ -7,14 +7,13 @@ $hasSubmitted = ($submitted === 'Login');
 $error = null;
 
 if ($hasSubmitted) {
-
     $_SESSION['user_key'] = null;
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
 
     $userKey = getUser($username, $password);
 
-    if($userKey !== null){
+    if ($userKey !== null) {
         // Start the session
         $_SESSION['user_key'] = $userKey;
         // redirect to dashboard
@@ -29,7 +28,7 @@ if ($hasSubmitted) {
 <html lang="en">
 <body>
 
-<?php if(!empty($error)): ?>
+<?php if (!empty($error)) : ?>
     <p><?php echo $error; ?></p>
 <?php endif; ?>
 

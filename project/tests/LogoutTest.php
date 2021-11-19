@@ -1,6 +1,11 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
+namespace Test;
+
 use PHPUnit\Framework\TestCase;
-require_once dirname(__FILE__).'/../common.php';
+
+//require_once dirname(__FILE__) . '/../common.php';
 
 class LogoutTest extends TestCase
 {
@@ -11,4 +16,3 @@ class LogoutTest extends TestCase
         $this->assertEmpty($_SESSION);
     }
 }
-
