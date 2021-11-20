@@ -2,11 +2,13 @@
 
 # What you will learn
 - How to create a HTML form
+- How to run a PHP webserver via the command line
 
 # Lesson notes
 
 1. [Create the login file](lesson_2.md#create-the-login-file)
 2. [Add HTML structure](lesson_2.md#add-the-html-structure)
+3. [Access the website](lesson_2.md#add-the-html-structure)
 
 ## Create the login file
 
@@ -46,6 +48,8 @@ In the new `login.php` file start by adding the skelton HTML structure like so:
     </body>
 </html>
 ```
+
+[^ Back to top](lesson_2.md#what-you-will-learn)
 
 ## Add the HTML form
 In the HTML body add the HTML form. This form will include the following:
@@ -96,6 +100,20 @@ This is an example of the full `login.php`
     </body>
 </html>
 ```
-[Go to lesson index](index.md)
+
+[^ Back to top](lesson_2.md#what-you-will-learn)
+
+## Access the website
+To access the website on a browser run the following PHP command in the terminal in the projects root folder
+```bash
+php -S localhost:8080 -t public
+```
+
+- The `-S` argument starts the PHP webserver.  Giving the value of `localhost:8080` will allow use access to the website at the address [http://localhost:8080](http://localhost:8080).
+- The `-t` argument sets the document route.  As we are running this command from project route we need to tell the PHP webserver to access files in the `public` subdirectory.
+
+[^ Back to top](lesson_2.md#what-you-will-learn)
+
+- [Go to lesson index](index.md)
 
 [Go back to readme](../../README.md)

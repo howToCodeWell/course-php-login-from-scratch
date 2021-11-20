@@ -48,6 +48,7 @@ A single PHP file will be used to hold common functions.  Create a file called `
 <?php
 
 ```
+
 [^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Download Composer
@@ -63,7 +64,9 @@ project/
 └───reports/
 └───tests/
 ```
+
 [^ Back to top](lesson_1.md#what-you-will-learn)
+
 ## Configure Composer
 Create a `composer.json` file in the project root and include `phpunit/phpunit`, `phpstan/phpstan`, `squizlabs/php_codesniffer` with the versions shown below
 
