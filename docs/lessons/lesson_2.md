@@ -133,7 +133,8 @@ $_POST
 ``` 
 variable would be empty.
 
+[^ Back to top](lesson_2.md#what-you-will-learn)
 
-- [Go to lesson index](index.md)
+[Go to lesson index](index.md)
 
 [Go back to readme](../../README.md)
