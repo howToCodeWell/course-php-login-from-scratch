@@ -8,7 +8,7 @@
 
 1. [Create the login file](lesson_2.md#create-the-login-file)
 2. [Add HTML structure](lesson_2.md#add-the-html-structure)
-3. [Access the website](lesson_2.md#add-the-html-structure)
+3. [Access the website](lesson_2.md#access-the-website)
 
 ## Create the login file
 
