@@ -9,6 +9,7 @@
 1. [Create the login file](lesson_2.md#create-the-login-file)
 2. [Add HTML structure](lesson_2.md#add-the-html-structure)
 3. [Access the website](lesson_2.md#access-the-website)
+4. [Get submitted data](lesson_2.md#access-the-website)
 
 ## Create the login file
 
@@ -113,6 +114,25 @@ php -S localhost:8080 -t public
 - The `-t` argument sets the document route.  As we are running this command from project route we need to tell the PHP webserver to access files in the `public` subdirectory.
 
 [^ Back to top](lesson_2.md#what-you-will-learn)
+
+## Get the submitted data
+At the top of the `login.php` we need to access `$_POST` variable once the form is submitted.  This variable holds an array of submitted data.  
+The array keys match the input names.  To get the username value we would access `$_POST['username]`.
+The submit button also has a `name` which is `submit`.
+```html
+<input type="submit" value="Login" name="submit" required />
+```
+The value of 
+```php 
+$_POST['submit']
+``` 
+would be `Login`  if the form has been submitted.
+If the form hasn't been submitted then the 
+```php
+$_POST
+``` 
+variable would be empty.
+
 
 - [Go to lesson index](index.md)
 
