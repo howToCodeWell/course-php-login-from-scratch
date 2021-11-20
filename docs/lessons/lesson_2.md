@@ -127,11 +127,7 @@ The value of
 $_POST['submit']
 ``` 
 would be `Login`  if the form has been submitted.
-If the form hasn't been submitted then the 
-```php
-$_POST
-``` 
-variable would be empty.
+If the form hasn't been submitted then the variable would be empty.
 
 [^ Back to top](lesson_2.md#what-you-will-learn)
 
