@@ -22,6 +22,12 @@ return [
                 'product_image' => 'monitor.jpg',
                 'order_date' => '01-04-2021',
             ],
+            [
+                'product_name' => 'Mixing deck',
+                'product_price' => 1500.99,
+                'product_image' => 'mixing_deck.jpg',
+                'order_date' => '01-04-2021',
+            ],
         ]
     ],
     [
