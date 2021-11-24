@@ -26,28 +26,35 @@ if ($hasSubmitted) {
 
 ?>
 <html lang="en">
-    <head>
+<head>
+    <link rel="stylesheet" href="assets/main.css">
+</head>
+<body>
 
-    </head>
-        <body>
 
+<main>
+    <form id="loginForm" method="post" action="login.php">
         <?php if (!empty($error)) : ?>
-            <p><?php echo $error; ?></p>
+            <div class="alert-error"><?php echo $error; ?></div>
         <?php endif; ?>
-
-        <form id="loginForm" method="post" action="login.php">
-            <fieldset>
+        <div class="form-content">
+            <div class="input-container">
                 <label for="username">
                     Username
                 </label>
                 <input type="text" id="username" name="username" required/>
+            </div>
+            <div class="input-container">
                 <label for="password">
                     Password
                 </label>
-                <input type="password" id="password" name="password" required />
-
-                <input type="submit" value="Login" name="submit" required />
-            </fieldset>
-        </form>
-    </body>
+                <input type="password" id="password" name="password" required/>
+            </div>
+            <div class="input-container input-button-container">
+                <input type="submit" value="Login" name="submit" required/>
+            </div>
+        </div>
+    </form>
+</main>
+</body>
 </html>
