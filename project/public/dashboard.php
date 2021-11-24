@@ -25,7 +25,6 @@ $items = $orders['items'] ?? [];
         <table >
             <thead>
                 <tr>
-                    <th></th>
                     <th>Name</th>
                     <th>Price</th>
                     <th>Date ordered</th>
@@ -40,7 +39,6 @@ $items = $orders['items'] ?? [];
                 ?>
 
                 <tr class="<?php echo 'row-'.$rowClassSuffix; ?>">
-                    <td><img src="<?php echo $item['product_image']; ?>"/></td>
                     <td><?php echo $item['product_name']; ?></td>
                     <td><?php echo $item['product_price']; ?></td>
                     <td><?php echo $item['order_date']; ?></td>

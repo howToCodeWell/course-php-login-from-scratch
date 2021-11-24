@@ -23,7 +23,6 @@ function getUser(string $username, string $password): ?string
  *      user: string,
  *      items: array{
  *          array{
- *              'product_image': string,
  *              'product_name': string,
  *              'product_price':int,
  *              'order_date': string
