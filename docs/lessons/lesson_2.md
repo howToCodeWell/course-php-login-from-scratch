@@ -113,7 +113,7 @@ To access the website on a browser run the following PHP command in the terminal
 php -S localhost:8080 -t public
 ```
 
-- The `-S` argument starts the PHP webserver.  Giving the value of `localhost:8080` will allow use access to the website at the address [http://localhost:8080](http://localhost:8080).
+- The `-S` argument starts the PHP webserver.  Giving the value of `localhost:8080` will allow use access to the website at the address [http://localhost:8080/login.php](http://localhost:8080/login.php).
 - The `-t` argument sets the document route.  As we are running this command from project route we need to tell the PHP webserver to access files in the `public` subdirectory.
 
 [^ Back to top](lesson_2.md#what-you-will-learn)
