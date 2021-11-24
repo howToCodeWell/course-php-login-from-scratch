@@ -3,13 +3,15 @@
 # What you will learn
 - How to create a HTML form
 - How to run a PHP webserver via the command line
+- How to access posted values
 
 # Lesson notes
 
 1. [Create the login file](lesson_2.md#create-the-login-file)
 2. [Add HTML structure](lesson_2.md#add-the-html-structure)
-3. [Access the website](lesson_2.md#access-the-website)
-4. [Get submitted data](lesson_2.md#access-the-website)
+3. [Add the HTML form](lesson_2.md#add-the-html-form)
+4. [Access the website](lesson_2.md#access-the-website)
+5. [Get submitted data](lesson_2.md#get-the-submitted-data)
 
 ## Create the login file
 
