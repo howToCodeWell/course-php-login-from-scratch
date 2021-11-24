@@ -31,6 +31,7 @@ Inside this folder create the following subdirectories
 project/
 └───config/
 └───public/
+|    └───assets/
 └───reports/
 └───tests/
 ```
@@ -61,6 +62,7 @@ project/
 │
 └───config/
 └───public/
+|   └───assets/
 └───reports/
 └───tests/
 ```
@@ -98,6 +100,7 @@ project/
 │
 └───config/
 └───public/
+|   └───assets/
 └───reports/
 └───tests/
 ```
@@ -118,6 +121,7 @@ project/
 │
 └───config/
 └───public/
+|   └───assets/
 └───reports/
 └───tests/
 └───vendor/
@@ -177,6 +181,7 @@ project/
 └───.phpunit.cache/
 └───config/
 └───public/
+|   └───assets/
 └───reports/
 └───tests/
 └───vendor/
@@ -299,6 +304,7 @@ project/
 │
 └───config/
 └───public/
+|   └───assets/
 └───reports/
 └───tests/
 └───vendor/

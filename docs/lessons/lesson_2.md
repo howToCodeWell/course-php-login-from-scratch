@@ -28,6 +28,7 @@ project/
 │
 └───config/
 └───public/
+|   └───assets/
 │   login.php
 └───reports/
 └───tests/
@@ -129,6 +130,32 @@ $_POST['submit']
 would be `Login`  if the form has been submitted.
 If the form hasn't been submitted then the variable would be empty.
 
+Create two variables `$submitted` and `$hasSubmitted`.
+
+`$submitted` will hold the value of `$_POST['submit']` and default to an empty string.
+```php
+$submitted = $_POST['submit'] ?? '';
+```
+Create a ternary statement that checks the value of `$submitted`. Set the value to `true` if `$submitted` is `Login` and `false` if not.
+```php
+$hasSubmitted = ($submitted === 'Login');
+```
+
+As `$hasSubmitted` is a boolean we can use that to check if the form has been submitted or not.
+
+```php
+if ($hasSubmitted) {
+    //.. Handle the form
+}
+```
+Inside the body of the if statement we can create variables that hold the value of the username and password.
+Use the null coalescing operator to set a default value of an empty string.
+```php
+if ($hasSubmitted) {
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+}
+```
 [^ Back to top](lesson_2.md#what-you-will-learn)
 
 [Go to lesson index](index.md)
