@@ -4,7 +4,6 @@ require_once '../common.php';
 
 $hasLoggedIn = isLoggedIn();
 if (false === $hasLoggedIn) {
-    // 3 - If not logged in redirect user to /index.php
     header('Location: /index.php');
     exit;
 }
@@ -33,8 +32,11 @@ $items = $orders['items'] ?? [];
                 </tr>
             </thead>
             <tbody>
-            <?php foreach ($items as $key => $item) :
-                $rowClassSuffix =  ($key % 2 === 0)  ? 'even' : 'odd' ;
+            <?php
+            $counter = 0;
+            foreach ($items as $item) :
+                $counter++;
+                $rowClassSuffix = ($counter % 2 === 0)  ? 'even' : 'odd';
                 ?>
 
                 <tr class="<?php echo 'row-'.$rowClassSuffix; ?>">
