@@ -4,7 +4,6 @@ require_once '../common.php';
 
 $hasLoggedIn = isLoggedIn();
 if (false === $hasLoggedIn) {
-    // 3 - If not logged in redirect user to /index.php
     header('Location: /index.php');
     exit;
 }
@@ -14,31 +13,41 @@ $items = $orders['items'] ?? [];
 ?>
 
 <html lang="en">
+<head>
+    <link rel="stylesheet" href="assets/main.css">
+</head>
 <body>
-<p>Welcome, <?php echo $userName; ?> <a href="logout.php">logout</a> </p>
 
-<table>
-    <thead>
-    <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Date ordered</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($items as $item) : ?>
-        <tr>
-            <td><img src="<?php echo $item['product_image']; ?>"/></td>
-            <td><?php echo $item['product_name']; ?></td>
-            <td><?php echo $item['product_price']; ?></td>
-            <td><?php echo $item['order_date']; ?></td>
-        </tr>
-    <?php endforeach; ?>
+        <header>
+            <p>Welcome, <?php echo $userName; ?> <a class="btn" href="logout.php">logout</a></p>
+        </header>
+        <main>
+        <table >
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Date ordered</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            $counter = 0;
+            foreach ($items as $item) :
+                $counter++;
+                $rowClassSuffix = ($counter % 2 === 0)  ? 'even' : 'odd';
+                ?>
 
-
-    </tbody>
-</table>
-
+                <tr class="<?php echo 'row-'.$rowClassSuffix; ?>">
+                    <td><img src="<?php echo $item['product_image']; ?>"/></td>
+                    <td><?php echo $item['product_name']; ?></td>
+                    <td><?php echo $item['product_price']; ?></td>
+                    <td><?php echo $item['order_date']; ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </main>
 </body>
 </html>
