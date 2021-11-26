@@ -1,7 +1,7 @@
 # Lesson 5: Style the secure area
 
 # What you will learn
- ~ Document what will be learnt ~
+- How to style a HTML table
 
 # Lesson notes
 1. [Link the style sheet to the secure area](lesson_5.md#link-the-stylesheet-to-the-login-page)
