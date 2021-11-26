@@ -7,84 +7,100 @@ body {
 main {
     display: flex;
     justify-content: center;
-    margin:auto;
+    margin: auto;
 }
-header{
+
+header {
     text-align: center;
-    margin-bottom:40px;
-    margin-top:100px;
-    color:#FFF;
+    margin-bottom: 40px;
+    margin-top: 100px;
+    color: #FFF;
 }
+
 form {
     margin-top: 100px;
 }
-.form-content{
-    background-color:#1a202c;
-    padding:10px;
-    border:none;
+
+.form-content {
+    background-color: #1a202c;
+    padding: 10px;
+    border: none;
     color: #000;
 }
-.alert-error{
+
+.alert-error {
     background-color: darkred;
-    color:#FFF;
+    color: #FFF;
     text-align: center;
-    padding:5px;
+    padding: 5px;
 }
-.input-container{
-    margin:10px;
-    width:100%;
+
+.input-container {
+    margin: 10px;
+    width: 100%;
 }
-.input-button-container{
+
+.input-button-container {
     display: flex;
     justify-content: end;
-    width:auto;
+    width: auto;
 }
-.input-container label{
+
+.input-container label {
     width: 100px;
-    display:inline-block;
-    color:#FFF;
+    display: inline-block;
+    color: #FFF;
 }
-.input-container input[type=text], .input-container input[type=password]
-{
+
+.input-container input[type=text], .input-container input[type=password] {
     width: 250px;
 }
-input{
-    padding:5px;
+
+input {
+    padding: 5px;
     border: 1px solid gray;
 }
-input[type=submit], a.btn{
-    padding:10px;
+
+input[type=submit], a.btn {
+    padding: 10px;
     background-color: #38a169;
-    color:#FFF;
+    color: #FFF;
     font-weight: bold;
-    border:none;
+    border: none;
 }
-a.btn{
+
+a.btn {
     text-decoration: none;
 }
-input[type=submit]:hover{
+
+input[type=submit]:hover {
     cursor: pointer;
 }
-input[type=submit]:hover, a.btn:hover{
+
+input[type=submit]:hover, a.btn:hover {
     background-color: dodgerblue;
 }
-table{
-    width:100%;
+
+table {
+    width: 100%;
     border-spacing: 0;
 }
 
-td, th{
+td, th {
     text-align: center;
-    padding:5px;
+    padding: 5px;
     border-bottom: 1px solid black;
 }
-th{
+
+th {
     background-color: #14252c;
-    color:#f687b3;
+    color: #f687b3;
 }
-.row-even td{
+
+.row-even td {
     background-color: ghostwhite;
 }
-.row-odd td{
+
+.row-odd td {
     background-color: blanchedalmond;
 }
