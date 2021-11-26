@@ -107,7 +107,7 @@ Place the form elements in a div with `class=form-content`
     </form>
 </main>
 ```
-[Go back to readme](../../README.md)
+[^ Back to top](lesson_4.md#what-you-will-learn)
 
 ## Style the form container
 Add the following to the `main.css` file. This will add a background colour and padding to the form container.
@@ -145,6 +145,7 @@ Within the `form-content` wrap each input and label group in a `input-container`
     </form>
 </main>
 ```
+[^ Back to top](lesson_4.md#what-you-will-learn)
 ## Style the form input containers
 In `main.css` add the following.  This will git the containers a margin and width
 ```css
@@ -161,7 +162,7 @@ Add the following the `main.css` to set the width and display of the labels with
     color: #FFF;
 }
 ```
-
+[^ Back to top](lesson_4.md#what-you-will-learn)
 ## Style the input elements
 
 To se the width of both the password and text input types add the following:
@@ -199,6 +200,7 @@ form {
     margin-top: 100px;
 }
 ```
+[^ Back to top](lesson_4.md#what-you-will-learn)
 ### Check the CSS file
 The `main.css` should look similar to this this
 ```css
@@ -267,4 +269,6 @@ input[type=submit]:hover {
     background-color: dodgerblue;
 }
 ```
+[^ Back to top](lesson_4.md#what-you-will-learn)
+
 [Go back to readme](../../README.md)
