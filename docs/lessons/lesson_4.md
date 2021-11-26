@@ -1,7 +1,10 @@
 # Lesson 4: Style the login form
 
 # What you will learn
- ~ Document what will be learnt ~
+- How to create a stylesheet
+- How to link a stylesheet to a webpage
+- How to style HTML form elements
+- Common CSS selectors
 
 # Lesson notes
 1. [Create a stylesheet](lesson_4.md#create-a-stylesheet)
