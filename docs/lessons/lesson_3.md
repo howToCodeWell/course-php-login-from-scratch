@@ -33,7 +33,7 @@ project/
 └───tests/
 └───vendor/
 ```
-[Go to lesson index](index.md)
+[^ Back to top](lesson_3.md#what-you-will-learn)
 
 ## Add the HTML structure
 
@@ -50,7 +50,7 @@ In the new `login.php` file start by adding the skelton HTML structure like so:
     </body>
 </html>
 ```
-[Go to lesson index](index.md)
+[^ Back to top](lesson_3.md#what-you-will-learn)
 
 ## Add the HTML table
 Within the HTML body element create a table element which contains the header and the body elements
@@ -151,7 +151,9 @@ The markup should look like this
     </body>
 </html>
 ```
+
 Visit the page in the browser and check the output
 [http://localhost:8080/dashboard.php](http://localhost:8080/dashboard.php)
 
+[^ Back to top](lesson_3.md#what-you-will-learn)
 [Go back to readme](../../README.md)
