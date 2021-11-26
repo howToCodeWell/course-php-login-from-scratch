@@ -13,7 +13,7 @@
 7. [Style the form container](lesson_4.md#style-the-form-container)
 8. [Wrap the form inputs in a input container](lesson_4.md#wrap-the-form-inputs-in-a-input-containers)
 9. [Style the input containers](lesson_4.md#style-the-form-input-containers)
-10. [Check the CSS file](lesson_4.md#style-the-form-container)
+10. [Check the CSS file](lesson_4.md#check-the-css-file)
 
 ## Create a stylesheet
 
@@ -120,6 +120,8 @@ Add the following to the `main.css` file. This will add a background colour and 
     color: #000;
 }
 ```
+[^ Back to top](lesson_4.md#what-you-will-learn)
+
 ## Wrap the form inputs in input containers
 Within the `form-content` wrap each input and label group in a `input-container` class. 
 ```html
@@ -146,6 +148,7 @@ Within the `form-content` wrap each input and label group in a `input-container`
 </main>
 ```
 [^ Back to top](lesson_4.md#what-you-will-learn)
+
 ## Style the form input containers
 In `main.css` add the following.  This will git the containers a margin and width
 ```css
@@ -163,6 +166,7 @@ Add the following the `main.css` to set the width and display of the labels with
 }
 ```
 [^ Back to top](lesson_4.md#what-you-will-learn)
+
 ## Style the input elements
 
 To se the width of both the password and text input types add the following:
@@ -201,6 +205,7 @@ form {
 }
 ```
 [^ Back to top](lesson_4.md#what-you-will-learn)
+
 ### Check the CSS file
 The `main.css` should look similar to this this
 ```css
