@@ -11,7 +11,7 @@
 5. [Style the main element](lesson_4.md#style-the-main-element)
 6. [Wrap the form elements in a form container](lesson_4.md#wrap-the-form-element-in-a-form-container)
 7. [Style the form container](lesson_4.md#style-the-form-container)
-8. [Wrap the form inputs in a input container](lesson_4.md#wrap-the-form-inputs-in-a-input-containers)
+8. [Wrap the form inputs in a input container](lesson_4.md#wrap-the-form-inputs-in-input-containers)
 9. [Style the input containers](lesson_4.md#style-the-form-input-containers)
 10. [Check the CSS file](lesson_4.md#check-the-css-file)
 
