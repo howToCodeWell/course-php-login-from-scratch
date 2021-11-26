@@ -12,6 +12,7 @@
 3. [Add the HTML form](lesson_2.md#add-the-html-form)
 4. [Access the website](lesson_2.md#access-the-website)
 5. [Get submitted data](lesson_2.md#get-the-submitted-data)
+6. [Check your code](lesson_2.md#check-your-code)
 
 ## Create the login file
 
@@ -159,6 +160,10 @@ if ($hasSubmitted) {
 }
 ```
 [^ Back to top](lesson_2.md#what-you-will-learn)
+
+## Check your code
+Run `make test` in the project root folder to run the code tests.  Fix any issues that you may have.
+
 
 [Go to lesson index](index.md)
 
