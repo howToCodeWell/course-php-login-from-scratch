@@ -4,11 +4,55 @@
  ~ Document what will be learnt ~
 
 # Lesson notes
-~ Optional lesson notes ~
+1. [Link the style sheet to the secure area](lesson_5.md#link-the-stylesheet-to-the-login-page)
+2. [Add a username to the secure area](lesson_5.md#add-the-username-to-the-secure-area)
+3. [Style the username](lesson_5.md#style-the-username)
+4. [Style the table elements](lesson_5.md#style-the-table-elements)
 
-```php
-<?php
-echo 'Add code snippets from lesson'
+Open `public/dashboard.php` and link the `main.css` stylesheet
+```html
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="assets/main.css">
+</head>
+```
+
+## Add the username to the secure area
+Add the following to `dashboard.php`. We will be updating the username dynamically later
+```html
+<body>
+    <header>
+        <p>Welcome, TestUser Name</p>
+    </header>
+```
+
+## Style the username
+Open `main.css` and add the following to style the header element
+```css
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 100px;
+    color: #FFF;
+}
+```
+## Style the table elements
+```css
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+td, th {
+    text-align: center;
+    padding: 5px;
+    border-bottom: 1px solid black;
+}
+
+th {
+    background-color: #14252c;
+    color: #f687b3;
+}
 ```
 [Go to lesson index](index.md)
 
