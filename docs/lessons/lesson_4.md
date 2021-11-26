@@ -11,6 +11,9 @@
 5. [Style the main element](lesson_4.md#style-the-main-element)
 6. [Wrap the form elements in a form container](lesson_4.md#wrap-the-form-element-in-a-form-container)
 7. [Style the form container](lesson_4.md#style-the-form-container)
+8. [Wrap the form inputs in a input container](lesson_4.md#wrap-the-form-inputs-in-a-input-containers)
+9. [Style the input containers](lesson_4.md#style-the-form-input-containers)
+10. [Check the CSS file](lesson_4.md#style-the-form-container)
 
 ## Create a stylesheet
 
@@ -115,6 +118,153 @@ Add the following to the `main.css` file. This will add a background colour and 
     padding: 10px;
     border: none;
     color: #000;
+}
+```
+## Wrap the form inputs in input containers
+Within the `form-content` wrap each input and label group in a `input-container` class. 
+```html
+<main>
+    <form id="loginForm" method="post" action="login.php">
+        <div class="form-content">
+            <div class="input-container">
+                <label for="username">
+                    Username
+                </label>
+                <input type="text" id="username" name="username" required/>
+            </div>
+            <div class="input-container">
+                <label for="password">
+                    Password
+                </label>
+                <input type="password" id="password" name="password" required/>
+            </div>
+            <div class="input-container">
+                <input type="submit" value="Login" name="submit" required/>
+            </div>
+        </div>
+    </form>
+</main>
+```
+## Style the form input containers
+In `main.css` add the following.  This will git the containers a margin and width
+```css
+.input-container {
+    margin: 10px;
+    width: 100%;
+}
+```
+Add the following the `main.css` to set the width and display of the labels within the input container.
+```css
+.input-container label {
+    width: 100px;
+    display: inline-block;
+    color: #FFF;
+}
+```
+
+## Style the input elements
+
+To se the width of both the password and text input types add the following:
+```css
+.input-container input[type=text], .input-container input[type=password] {
+    width: 250px;
+}
+```
+Give each input a padding and border
+```css
+input {
+    padding: 5px;
+    border: 1px solid gray;
+}
+```
+Target the submit button and override the input `padding` from `5px` to `10px`
+```css
+input[type=submit] {
+    padding: 10px;
+    background-color: #38a169;
+    color: #FFF;
+    font-weight: bold;
+    border: none;
+}
+```
+Change the background colour of the submit buttons hover state.
+```css
+input[type=submit]:hover {
+    background-color: dodgerblue;
+}
+```
+Give the form element 100px margin top
+```css
+form {
+    margin-top: 100px;
+}
+```
+### Check the CSS file
+The `main.css` should look similar to this this
+```css
+body {
+    font-size: 16px;
+    font-family: Arial;
+    background-color: #4a5568;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+form {
+    margin-top: 100px;
+}
+
+.form-content {
+    background-color: #1a202c;
+    padding: 10px;
+    border: none;
+    color: #000;
+}
+
+.input-container {
+    margin: 10px;
+    width: 100%;
+}
+
+.input-button-container {
+    display: flex;
+    justify-content: end;
+    width: auto;
+}
+
+.input-container label {
+    width: 100px;
+    display: inline-block;
+    color: #FFF;
+}
+
+.input-container input[type=text], .input-container input[type=password] {
+    width: 250px;
+}
+
+input {
+    padding: 5px;
+    border: 1px solid gray;
+}
+
+input[type=submit] {
+    padding: 10px;
+    background-color: #38a169;
+    color: #FFF;
+    font-weight: bold;
+    border: none;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: dodgerblue;
 }
 ```
 [Go back to readme](../../README.md)
