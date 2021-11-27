@@ -286,7 +286,7 @@ We can display the error message on the page like so:
         <div class="form-content">
 ```
 
-Update the `main.css` add add the following `alert-error` class.
+Update the `main.css` add the following `alert-error` class.
 ```css
 .alert-error {
     background-color: darkred;
