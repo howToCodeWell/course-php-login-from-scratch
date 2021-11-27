@@ -8,6 +8,8 @@
 - [Add user array data](lesson_6.md#add-user-array-data)
 - [Include user config](lesson_6.md#include-user-config)
 - [Get a user](lesson_6.md#get-a-user)
+- [Submit the login form](lesson_6.md#get-a-user)
+- [Display error](lesson_6.md#get-a-user)
 
 ## Create user config
 Create the file `userConfig.php` in the `config` folder
@@ -34,6 +36,7 @@ project/
 └───tests/
 └───vendor/
 ```
+[^ Back to top](lesson_6.md#what-you-will-learn)
 
 ## Add user array data
 In `userConfig.php` add the following:
@@ -52,6 +55,7 @@ return [
 ];
 
 ```
+
 This is a nested associative array where the first index (_user_id_,_user_2_) is the user key.
 The user key has two elements. The _username_ and the _password_ will be used to login.
 
@@ -66,6 +70,8 @@ Define the named constant `USER_CONFIG`  in `common.php`
 ```php
 define('USER_CONFIG', $userConfig);
 ```
+
+[^ Back to top](lesson_6.md#what-you-will-learn)
 
 ## Get a user
 We need to create a function that will return the _user_key_ of a given username and password.
@@ -204,7 +210,93 @@ public function testGetUserWithIncorrectCredentials(): void
 }
 ```
 This test replicates submitting the wrong credentials on the login form. This should be covered by the first test that we created but its always a good idea to capture different unhappy paths.
-Re-run `make tests`. All tests should still pass
+Re-run `make tests`. All tests should still pass.
+
+
+[^ Back to top](lesson_6.md#what-you-will-learn)
+
+## Submit the form
+Now all the tests are passing we can call `getUser` when the login form has been submitted.
+Open `login.php` and add update the PHP code to look like this:
+```php
+<?php
+require_once '../common.php';
+
+$submitted = $_POST['submit'] ?? '';
+$hasSubmitted = ($submitted === 'Login');
+
+if ($hasSubmitted) {
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    $userKey = getUser($username, $password);
+
+    if ($userKey !== null) {
+        // 1) Start the session
+        // 2) redirect to dashboard
+    } else {
+        // 1) Display error
+    }
+}
+
+?>
+```
+Here we are calling `getUser` when the form has been submitted. (When `$hasSubmitted === true`). The supplied `$username` and `$password` and passed to `getUser` and `$userKey` is returned.  If the user is not found then `NULL` is returned. Otherwise, the `user_key` is returned.
+We can check if `$userKey` is not `null` and set the seesion and redirect the user to the secureed area.  If `$userKey` is `null` then we can display an error on the page.
+
+
+[^ Back to top](lesson_6.md#what-you-will-learn)
+
+## Display error when incorrect details are submitted
+Alter `login.php` with the following:
+```php
+<?php
+session_start();
+require_once '../common.php';
+
+$submitted = $_POST['submit'] ?? '';
+$hasSubmitted = ($submitted === 'Login');
+$error = null;
+
+if ($hasSubmitted) {
+    $_SESSION['user_key'] = null;
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    $userKey = getUser($username, $password);
+
+    if ($userKey !== null) {
+        // 1) Start the session
+        // 2) redirect to dashboard
+    } else {
+        $error = 'Invalid login, please try again';
+    }
+}
+
+?>
+```
+Here we are setting an error message to `$error` if `$userKey` is null.
+We can display the error message on the page like so:
+```html
+<main>
+    <form id="loginForm" method="post" action="login.php">
+        <?php if (!empty($error)) : ?>
+            <div class="alert-error"><?php echo $error; ?></div>
+        <?php endif; ?>
+        <div class="form-content">
+```
+
+Update the `main.css` add add the following `alert-error` class.
+```css
+.alert-error {
+    background-color: darkred;
+    color: #FFF;
+    text-align: center;
+    padding: 5px;
+}
+```
+Re-run `make tests` to make sure everything is OK and then run the webserver. 
+Try logging in with correct and incorrect details.
 
 [Go to lesson index](index.md)
 
