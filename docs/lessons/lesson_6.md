@@ -156,6 +156,56 @@ To include this boostrap file in our tests open `phpunit.xml` and change `bootst
 
 The test should now pass.
 
+Add another test to `UserTest.php` that checks for a correct username and password
+
+```php
+public function testGetUserWithCorrectCredentials(): void
+{
+    $this->assertSame('user_1', getUser('howtocodewell1', 'testHTCW'));
+}
+```
+Here we are looking for the return of the user key that corresponds to the user with the username of `howtocodewell1` and password `testHTCW`. 
+In this example the function `getUser()` should return the user key `user_1`.
+
+When re-running `make tests` you should get the following error:
+```bash
+There was 1 failure:
+
+1) Test\UserTest::testGetUserWithCorrectCredentials
+Failed asserting that null is identical to 'user_1'.
+```
+
+To make the test pass the body of `getUser` needs to be adjusted to find the correct user key.
+Change `getUser` to look like this:
+```php
+function getUser(string $username, string $password): ?string
+{
+    foreach (USER_CONFIG as $userKey => $userData) {
+        if ($userData['username'] === $username && $userData['password'] === $password) {
+            return $userKey;
+        }
+    }
+    return null;
+}
+```
+Here we are looping over the constant `USER_CONFIG` that we defined earlier and pulling out the `$userData`. The `$userKey` holds the user key of each user.
+We need check the supplied `$username` against the `$userData['username']` and the supplied `$password` against `$userData['password']`. If both match then we can return the `$userKey`. 
+
+After this change to `common.php` re-run `make tests`.  All tests should now pass.
+
+So far we have tested the correct details and empty details. Let's also test incorrect details.
+
+Create the following test in `UserTest.php` 
+
+```php
+public function testGetUserWithIncorrectCredentials(): void
+{
+    $this->assertNull(getUser('howtocodewell1', 'not-valid'));
+}
+```
+This test replicates submitting the wrong credentials on the login form. This should be covered by the first test that we created but its always a good idea to capture different unhappy paths.
+Re-run `make tests`. All tests should still pass
+
 [Go to lesson index](index.md)
 
 [Go back to readme](../../README.md)
