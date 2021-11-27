@@ -156,4 +156,7 @@ Visit the page in the browser and check the output
 [http://localhost:8080/dashboard.php](http://localhost:8080/dashboard.php)
 
 [^ Back to top](lesson_3.md#what-you-will-learn)
+
+[Go to lesson index](index.md)
+
 [Go back to readme](../../README.md)

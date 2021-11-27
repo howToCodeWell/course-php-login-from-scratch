@@ -279,4 +279,6 @@ input[type=submit]:hover {
 ```
 [^ Back to top](lesson_4.md#what-you-will-learn)
 
+[Go to lesson index](index.md)
+
 [Go back to readme](../../README.md)
