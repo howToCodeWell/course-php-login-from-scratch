@@ -1,4 +1,4 @@
-# Lesson 8: Handle user login
+# Lesson 8: Handle sessions
 
 # What you will learn
  ~ Document what will be learnt ~

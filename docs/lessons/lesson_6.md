@@ -1,7 +1,10 @@
-# Lesson 6: Create PHP user config
+# Lesson 6: Handle user login
 
 # What you will learn
- ~ Document what will be learnt ~
+ - Creating associative arrays
+ - Accessing posted form values
+ - Configuring PHPUnit
+ - TDD (Test Driven Development)
 
 # Lesson notes
 - [Create user config](lesson_6.md#create-user-config)
@@ -56,7 +59,7 @@ return [
 
 ```
 
-This is a nested associative array where the first index (_user_id_,_user_2_) is the user key.
+This is a nested associative array where the first index (_user_1_, _user_2_) is the user key.
 The user key has two elements. The _username_ and the _password_ will be used to login.
 
 ## Include user config
@@ -116,7 +119,7 @@ class UserTest extends TestCase
 
 }
 ```
-The method that we will create will be called `getUser()`.  Create a failing test first that checks that  null is returned when blank credentials are passed.
+The function that we will create will be called `getUser()`.  Create a failing test first that checks that `null` is returned when blank credentials are passed.
 
 ```php
 public function testGetUserWithEmptyCredentials(): void
@@ -124,7 +127,6 @@ public function testGetUserWithEmptyCredentials(): void
     $this->assertNull(getUser('', ''));
 }
 ```
-
 Run the tests `make tests`
 
 You will get an error similar to this
@@ -134,20 +136,20 @@ Error: Call to undefined function Test\getUser()
 ```
 
 This error is happening for two reasons
-1. The `getUser` method doesn't exist
+1. The `getUser` function doesn't exist
 2. The test file cannot access `common.php`
 
-Add the following to `common.php`
+Add the `getUser` function to `common.php`
 ```php
 function getUser(string $username, string $password): ?string
 {
     return null;
 }
 ```
-This method takes two strings.  A `$username` and a `$password` it will be user to identify a user from their login credentials.  It will return the _user_key_ from the `$userConfig`.  If a user hasn't been found  then `null` will be returned.
-Currently, this method is only returns `null` which is what is acceptable for our failing test.
+This method takes two strings.  A `$username` and a `$password` it will be used to identify a user from their login credentials.  It will return the _user_key_ from the `$userConfig`.  If a user hasn't been found  then `null` will be returned.
+Currently, this method only returns `null` which is acceptable for our failing test.
 
-Run the tests `make tests`
+Run the tests again `make tests`
 This will still throw an error because the second issue hasn't been resolved.
 
 Create the file `tests/bootstrap.php` and add the following
@@ -156,13 +158,13 @@ Create the file `tests/bootstrap.php` and add the following
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 require_once dirname(__FILE__) . '/../common.php';
 ```
-This bootstrap file will require the vendors autoloader and our `common.php` 
+This bootstrap file will require the autoloader from vendor and our `common.php` file.
 
 To include this boostrap file in our tests open `phpunit.xml` and change `bootstrap="vendor/autoload.php"` to `bootstrap="tests/bootstrap.php"` and re-run `make tests`. 
 
 The test should now pass.
 
-Add another test to `UserTest.php` that checks for a correct username and password
+Add another test to `UserTest.php` that checks for a correct username and password.
 
 ```php
 public function testGetUserWithCorrectCredentials(): void
@@ -182,7 +184,7 @@ Failed asserting that null is identical to 'user_1'.
 ```
 
 To make the test pass the body of `getUser` needs to be adjusted to find the correct user key.
-Change `getUser` to look like this:
+Change the `getUser` function to look like this:
 ```php
 function getUser(string $username, string $password): ?string
 {
@@ -194,10 +196,10 @@ function getUser(string $username, string $password): ?string
     return null;
 }
 ```
-Here we are looping over the constant `USER_CONFIG` that we defined earlier and pulling out the `$userData`. The `$userKey` holds the user key of each user.
-We need check the supplied `$username` against the `$userData['username']` and the supplied `$password` against `$userData['password']`. If both match then we can return the `$userKey`. 
+Here we are looping over the constant `USER_CONFIG` that we defined earlier and pulling out the `$userData`. The `$userKey` variable holds the user key of each user.
+Once the login is submitted we need check the supplied `$username` against the `$userData['username']` and the supplied `$password` against `$userData['password']`. If both match then we can return the `$userKey`. 
 
-After this change to `common.php` re-run `make tests`.  All tests should now pass.
+After this changing `common.php` re-run `make tests`.  All tests should now pass.
 
 So far we have tested the correct details and empty details. Let's also test incorrect details.
 
@@ -209,7 +211,7 @@ public function testGetUserWithIncorrectCredentials(): void
     $this->assertNull(getUser('howtocodewell1', 'not-valid'));
 }
 ```
-This test replicates submitting the wrong credentials on the login form. This should be covered by the first test that we created but its always a good idea to capture different unhappy paths.
+This test replicates submitting the wrong credentials on the login form. This should be covered by the first test that we created earlier but it is always a good idea to capture different unhappy paths.
 Re-run `make tests`. All tests should still pass.
 
 
@@ -217,7 +219,7 @@ Re-run `make tests`. All tests should still pass.
 
 ## Submit the form
 Now all the tests are passing we can call `getUser` when the login form has been submitted.
-Open `login.php` and add update the PHP code to look like this:
+Open `login.php` and update the PHP code to look like this:
 ```php
 <?php
 require_once '../common.php';
@@ -241,8 +243,8 @@ if ($hasSubmitted) {
 
 ?>
 ```
-Here we are calling `getUser` when the form has been submitted. (When `$hasSubmitted === true`). The supplied `$username` and `$password` and passed to `getUser` and `$userKey` is returned.  If the user is not found then `NULL` is returned. Otherwise, the `user_key` is returned.
-We can check if `$userKey` is not `null` and set the seesion and redirect the user to the secureed area.  If `$userKey` is `null` then we can display an error on the page.
+Here we are calling `getUser` when the form has been submitted (when `$hasSubmitted === true`). The supplied `$username` and `$password` is passed to `getUser` and `$userKey` is returned if found.  If the user is not found then `NULL` is returned.
+We can check if `$userKey` is not `null`, set the session and redirect the user to the secured area.  If `$userKey` is `null` then we can display an error on the page.
 
 
 [^ Back to top](lesson_6.md#what-you-will-learn)
@@ -275,7 +277,7 @@ if ($hasSubmitted) {
 
 ?>
 ```
-Here we are setting an error message to `$error` if `$userKey` is null.
+Here we are setting an error message to the `$error` variable if `$userKey` is null.
 We can display the error message on the page like so:
 ```html
 <main>
