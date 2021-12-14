@@ -8,8 +8,8 @@
 5. [Style the secure area](lesson_5.md)
 6. [Handle user login](lesson_6.md)
 7. [Create PHP order config](lesson_7.md)
-8. [Handle sessions](lesson_8.md)
-9. [Handle user logout](lesson_9.md)
-10. [Handle secure area](lesson_10.md)
+8. [Populate secure area with user data](lesson_8.md)
+9. [Handle sessions](lesson_9.md)
+10. [Handle redirects](lesson_10.md)
 
 [Go back to readme](../../README.md)

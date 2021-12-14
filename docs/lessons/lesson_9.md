@@ -1,4 +1,4 @@
-# Lesson 9: Handle user logout
+# Lesson 9: Handle sessions
 
 # What you will learn
  ~ Document what will be learnt ~

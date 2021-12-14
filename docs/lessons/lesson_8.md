@@ -1,10 +1,13 @@
-# Lesson 8: Handle sessions
+# Lesson 8: Populate secure area with user data
 
 # What you will learn
  ~ Document what will be learnt ~
 
 # Lesson notes
-~ Optional lesson notes ~
+- Get a user order
+- Display the username
+- Display the order items
+- Alternate the order item table row colours
 
 ```php
 <?php

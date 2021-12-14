@@ -1,4 +1,4 @@
-# Lesson 10: Handle secure area
+# Lesson 10: Handle redirects
 
 # What you will learn
  ~ Document what will be learnt ~
