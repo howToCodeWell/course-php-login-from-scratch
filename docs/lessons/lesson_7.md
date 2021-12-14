@@ -101,7 +101,7 @@ define('ORDER_CONFIG', $orderConfig);
 
 ## Get orders for a given user
 We need to create a function that will return the orders for a given user.
-Create a `tests/OrdersTest.php`
+Create the test file `tests/OrdersTest.php`
 ```
 project/
 │   .gitignore
@@ -203,7 +203,7 @@ function getOrders(string $userName): ?array
     return null;
 }
 ```
-This loops over the `ORDER_CONFIG` array and looks for the `user` key that matches the supplied `$username` variable. If a match is found then the `$order` is returned. If no matches are found then `null` is returned.
+This loops over the `ORDER_CONFIG` array and looks for the `user` element that matches the supplied `$username` variable. If a match is found then the `$order` is returned. If no matches are found then `null` is returned.
 
 Re run `make test` and notice the following error with PHPStan.  
 ```bash
@@ -244,7 +244,7 @@ To fix this error add the following PHP docblock to the `getOrders` function in 
  *
  */
 ```
-The return part of the docblock defines the shape of the array with the nested array keys.
+The return part of the docblock defines the shape of the array with the nested array keys and the data types.
 Re-run `make test`. All test should pass.
 
 [Go to lesson index](index.md)
