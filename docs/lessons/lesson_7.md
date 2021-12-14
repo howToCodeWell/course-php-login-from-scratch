@@ -1,7 +1,9 @@
 # Lesson 7: Create PHP order config
 
 # What you will learn
- ~ Document what will be learnt ~
+- Array shapes
+- PHP Data types
+- Fixing PHPStan errors
 
 # Lesson notes
 - [Create order config](lesson_7.md#create-order-config)
