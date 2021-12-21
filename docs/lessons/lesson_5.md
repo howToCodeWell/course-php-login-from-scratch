@@ -25,7 +25,40 @@ Add the following to `dashboard.php`. We will be updating the username dynamical
         <p>Welcome, TestUser Name</p>
     </header>
 ```
+Also add a `<main>` element to the HTML. The `dashboard.php` should now look like this
 
+```html
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="assets/main.css">
+</head>
+<body>
+
+        <header>
+            <p>Welcome, TestUser Name</p>
+        </header>
+        <main>
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Date ordered</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Test name</td>
+                    <td>5.95</td>
+                    <td>13/04/2021</td>
+                </tr>
+                </tbody>
+            </table>
+    </main>
+</body>
+</html>
+```
 ## Style the username
 Open `main.css` and add the following to style the header element
 ```css
