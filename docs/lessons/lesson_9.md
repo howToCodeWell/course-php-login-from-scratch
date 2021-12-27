@@ -6,6 +6,7 @@
 # Lesson notes
 - [Starting a session](lesson_9.md#starting-a-session)
 - [Securing the dashboard](lesson_9.md#securing-the-dashboard)
+- [Logging into the application](lesson_9.md#logging-into-the-application)
 
 ## Starting a session
 Sessions are started when `session_start()` is called. This tends to be the first function call made by an application as sessions as usually started at the beginning of a request.
@@ -87,6 +88,62 @@ The variable `$userKey` will be assigned the value stored in `$_SESSION['user_ke
 `$userKey` is then checked for `null`. If it is not `null` then `true` is returned.  This means there is a session with a stored `user_key`. If no user reference is stored then `$userKey` will be `null` and in this case `false` will be returned.
 
 Run `make test` again and all the tests should continue to pass.
+
+At this point `isLoggedIn` will always return false. The next test will be to check that when a valid session is found `isLoggedIn` will return `true`.
+
+Create the following failing test in `LoginTest.php`
+```php
+public function testIsLoggedIn(): void
+{
+    $this->assertTrue(isLoggedIn());
+}
+```
+Run `make tests` and you should see a similar error
+```bash
+There was 1 failure:
+
+1) Test\LoginTest::testIsLoggedIn
+Failed asserting that false is true.
+```
+
+The test is failing because `isLoggedIn()` is always returning false.
+To mock a session add the following lines to `testIsLoggedIn`
+1. Before the call to `isLoggedIn()` add the line to set the session `user_key` value. `$_SESSION['user_key'] = 'foobar';`
+2. After the call to `isLoggedIn()` unset the session value. ` unset($_SESSION['user_key']);`
+
+`testIsLoggedIn` should now look like this
+```php
+public function testIsLoggedIn(): void
+{
+    $_SESSION['user_key'] = 'foobar';
+    $this->assertTrue(isLoggedIn());
+
+    unset($_SESSION['user_key']);
+}
+```
+
+Run `make test` again and all tests should pass.
+
+To check if the user has logged into the application `isLoggedIn()` can now be called from the `dashboard.php`
+```php
+<?php
+session_start();
+require_once '../common.php';
+
+$hasLoggedIn = isLoggedIn();
+if (false === $hasLoggedIn) {
+    echo 'User has not logged in!'
+    exit;
+}
+```
+
+Run the webserver and access [http://localhost:8080/dashboard.php](http://localhost:8080/dashboard.php). 
+
+The following message should now be shown instead of the table of orders.
+```bash
+User has not logged in!
+```
+## Logging into the application
 
 [Go to lesson index](index.md)
 
