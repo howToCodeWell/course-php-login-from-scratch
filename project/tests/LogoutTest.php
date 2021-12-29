@@ -5,7 +5,6 @@ namespace Test;
 
 use PHPUnit\Framework\TestCase;
 
-
 class LogoutTest extends TestCase
 {
     public function testLogout(): void
