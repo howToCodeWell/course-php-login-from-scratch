@@ -20,6 +20,8 @@
 8. [Run PHP Code Sniffer](lesson_1.md#run-php-code-sniffer)
 9. [Configure PHPStan](lesson_1.md#configure-phpstan)
 10. [Run PHPStan](lesson_1.md#run-phpstan)
+11. [Testing commands](lesson_1.md#testing-commands)
+12. [Check the folder structure](lesson_1.md#check-the-folder-structure)
 
 ## Project setup
 Create a new folder called `project`
@@ -264,31 +266,9 @@ Note: Using configuration file /path/to/code/course/course-php-login/project/php
 ```
 [^ Back to top](lesson_1.md#what-you-will-learn)
 
-## Create a Makefile
-We now have a lot of commands that require different arguments and options. To make it easier to run these commands we are going to create a Makefile which we can use to automate these commands.
-Create a file called `Makefile` in the project root.
-Include the following set of rules:
+## Testing commands
 
-```bash
-test-stan:
-	./vendor/bin/phpstan
-
-test-unit:
-	./vendor/bin/phpunit tests
-
-test-unit-coverage:
-	export XDEBUG_MODE=coverage && ./vendor/bin/phpunit --coverage-html reports tests
-
-test-lint:
-	./vendor/bin/phpcs --standard=coding_standard.xml common.php tests public config
-
-clean:
-	./vendor/bin/phpcbf --standard=coding_standard.xml common.php tests public config
-
-test: test-lint test-stan test-unit
-```
-
-These are the following make commands:
+These are the following commands available in composer:
 
 1. To run PHPStan `composer test-stan`
 2. To run PHPUnit `composer test-unit`
