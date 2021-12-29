@@ -9,6 +9,7 @@ class UserTest extends TestCase
 {
     public function testGetUserKeyWhenNotSet(): void
     {
+        unset($_SESSION);
         $this->assertNull(getUserKey());
     }
 

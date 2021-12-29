@@ -182,13 +182,14 @@ You should now be able to access the users orders.
 
 ## Displaying the users order items
 
-Now a user can log into the application it is time to show the correct order items for a given user in the secure dashboard.
+Now that a user can log into the application it is time to show the correct order items for a given user in the secure dashboard.
 A function called `getUserKey` is needed to return the `user_key` which is stored in the session. Create a failing test in `UserTest.php` called `testGetUserKeyWhenNotSet`.
-This test will check that `null` is returned when the `getUserKey` function is called without a valid login.
+This test will check that `null` is returned when the `getUserKey` function is called without a valid login. The unset PHP function will remove any session data that might be stored in the application.
 
 ```php
 public function testGetUserKeyWhenNotSet(): void
 {
+    unset($_SESSION);
     $this->assertNull(getUserKey());
 }
 ```
