@@ -31,6 +31,8 @@ session_start();
 require_once '../common.php';
 ```
 
+[^ Back to top](lesson_9.md#what-you-will-learn)
+
 ## Securing the dashboard
 During login, data will be stored in the session. This data will tell the application if the user has logged in or not and has been granted access to the dashboard.
 A function is need to check if the user has logged in.  This will return a boolean.
@@ -146,6 +148,9 @@ The following message should now be shown instead of the table of orders.
 ```bash
 User has not logged in!
 ```
+
+[^ Back to top](lesson_9.md#what-you-will-learn)
+
 ## Logging into the application
 Alter the body of the if condition in `login.php` and set the sessions `user_key` to null if `$hasSubmitted` is `true`.
 Then alter the body of the inner if condition and set the sessions `user_key` to the value of `$userKey` if it's not `null`.
@@ -172,6 +177,8 @@ This sets the session `user_key` if the user has logged in correctly.
 Access the login page and enter the username and password of a known user and then go to the secure dashboard page.  
 
 You should now be able to access the users orders.
+
+[^ Back to top](lesson_9.md#what-you-will-learn)
 
 ## Displaying the users order items
 
@@ -284,6 +291,9 @@ $items = $orders['items'] ?? [];
 ```
 
 After logging into the application and going to `dashboard.php` in the browser, you should now see the correct order and in the dashboard.
+
+[^ Back to top](lesson_9.md#what-you-will-learn)
+
 [Go to lesson index](index.md)
 
 [Go back to readme](../../README.md)

@@ -297,6 +297,8 @@ Update the `main.css` add the following `alert-error` class.
 Re-run `composer tests` to make sure everything is OK and then run the webserver. 
 Try logging in with correct and incorrect details.
 
+[^ Back to top](lesson_6.md#what-you-will-learn)
+
 [Go to lesson index](index.md)
 
 [Go back to readme](../../README.md)

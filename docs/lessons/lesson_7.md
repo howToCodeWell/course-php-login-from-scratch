@@ -36,6 +36,7 @@ project/
 └───tests/
 └───vendor/
 ```
+
 [^ Back to top](lesson_7.md#what-you-will-learn)
 
 ## Add order array data
@@ -242,6 +243,8 @@ To fix this error add the following PHP docblock to the `getOrders` function in 
 ```
 The return part of the docblock defines the shape of the array with the nested array keys and the data types.
 Re-run `composer test`. All test should pass.
+
+[^ Back to top](lesson_7.md#what-you-will-learn)
 
 [Go to lesson index](index.md)
 

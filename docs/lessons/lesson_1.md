@@ -116,7 +116,9 @@ project/
 └───reports/
 └───tests/
 ```
+
 [^ Back to top](lesson_1.md#what-you-will-learn)
+
 ## Run Composer
 
 Run the following command in the terminal to install the composer packages.
@@ -138,6 +140,7 @@ project/
 └───tests/
 └───vendor/
 ```
+
 [^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Configure PHPUnit
@@ -247,6 +250,7 @@ parameters:
 		- public
 		- common.php
 ```
+
 [^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Run PHPStan
@@ -264,6 +268,7 @@ Note: Using configuration file /path/to/code/course/course-php-login/project/php
  [OK] No errors                                                                                                         
                                                                                                                         
 ```
+
 [^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Testing commands

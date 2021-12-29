@@ -12,7 +12,6 @@
 - [Display the order items](lesson_8.md#display-the-order-items)
 - [Alternate the order item table row colours](lesson_8.md#alternate-the-order-item-table-row-colours)
 
-
 ## Get a users order
 To get a users order the `getOrders` function needs to be called with a username.
 In this lesson we will hard code the username. In a future lessons this username will be dynamically set to the username of the logged in user.
@@ -38,6 +37,8 @@ To display the username replace the hardcoded username in `dashboard.php` with t
     <p>Welcome, <?php echo $userName; ?></p>
 </header>
 ```
+
+[^ Back to top](lesson_8.md#what-you-will-learn)
 
 ## Display the order items
 Replace the hardcoded order items in the `dashboard.php` table with those from `$items`.
@@ -88,6 +89,8 @@ Adjust the `$items` variable assignment to use the nullish coalescing operator `
 $items = $orders['items'] ?? [];
 ```
 After this adjustment re-run `composer test`. All tests should now pass.
+
+[^ Back to top](lesson_8.md#what-you-will-learn)
 
 ## Alternate the order item table row colours
 Create two CSS classes in `public/assets/main.css` that will handle the alternating row colours.
@@ -197,6 +200,7 @@ $items = $orders['items'] ?? [];
 </body>
 </html>
 ```
+[^ Back to top](lesson_8.md#what-you-will-learn)
 
 [Go to lesson index](index.md)
 

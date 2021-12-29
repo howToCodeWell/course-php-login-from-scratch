@@ -163,6 +163,7 @@ if ($hasSubmitted) {
 ## Check your code
 Run `composer test` in the project root folder to run the code tests.  Fix any issues that you may have.
 
+[^ Back to top](lesson_2.md#what-you-will-learn)
 
 [Go to lesson index](index.md)
 
