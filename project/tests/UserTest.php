@@ -5,8 +5,6 @@ namespace Test;
 
 use PHPUnit\Framework\TestCase;
 
-//require_once dirname(__FILE__) . '/../common.php';
-
 class UserTest extends TestCase
 {
     public function testGetUserKeyWhenNotSet(): void

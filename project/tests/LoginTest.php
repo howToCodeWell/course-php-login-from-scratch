@@ -5,8 +5,6 @@ namespace Test;
 
 use PHPUnit\Framework\TestCase;
 
-//require_once dirname(__FILE__) . '/../common.php';
-
 class LoginTest extends TestCase
 {
     public function testIsNotLoggedInByDefault(): void
