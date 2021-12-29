@@ -37,7 +37,7 @@ class LogoutTest extends TestCase
 }
 ```
 This tests ensures that after logout is called the `$_SESSION` variable is `empty`.
-After running `make test` you should see a similar error
+After running `composer test` you should see a similar error
 ```bash
 There was 1 failure:
 
@@ -56,7 +56,7 @@ function logout(): void
 ```
 This function unsets all the data stored in `$_SESSION` which means the user is no longer logged into the application.
 
-Re-run `make test` and all tests should pass.
+Re-run `composer test` and all tests should pass.
 
 
 [Go to lesson index](index.md)

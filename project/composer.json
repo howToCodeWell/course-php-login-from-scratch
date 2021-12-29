@@ -2,6 +2,18 @@
     "name": "howtocodewell/course-php-login",
     "description": "How To Code Well Course: PHP Login",
     "type": "project",
+    "scripts": {
+        "test-stan": "phpstan",
+        "test-unit": "phpunit --colors=always tests",
+        "test-unit-coverage": "export XDEBUG_MODE=coverage && phpunit --colors=always --coverage-html reports tests",
+        "test-lint": "phpcs --standard=coding_standard.xml common.php tests public config",
+        "clean": "phpcbf --standard=coding_standard.xml common.php tests public config",
+        "test": [
+            "@test-lint",
+            "@test-stan",
+            "@test-unit"
+        ]
+    },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
         "phpstan/phpstan": "^1.1",

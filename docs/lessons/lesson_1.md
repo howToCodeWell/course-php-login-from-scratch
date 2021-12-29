@@ -6,7 +6,7 @@
  - How to configure and run PHPUnit
  - How to configure and run PHP Code Sniffer
  - How to configure and run PHPStan
- - How to use a Makefile
+ - How to run the scripts
 
 # Lesson sections
 
@@ -20,8 +20,6 @@
 8. [Run PHP Code Sniffer](lesson_1.md#run-php-code-sniffer)
 9. [Configure PHPStan](lesson_1.md#configure-phpstan)
 10. [Run PHPStan](lesson_1.md#run-phpstan)
-11. [Create a Makefile](lesson_1.md#create-a-makefile)
-12. [Check the folder structure](lesson_1.md#check-the-folder-structure)
 
 ## Project setup
 Create a new folder called `project`
@@ -82,6 +80,18 @@ Create a `composer.json` file in the project root and include `phpunit/phpunit`,
     "phpstan/phpstan": "^1.1",
     "squizlabs/php_codesniffer": "^3.6"
   },
+  "scripts": {
+    "test-stan": "phpstan",
+    "test-unit": "phpunit --colors=always tests",
+    "test-unit-coverage": "export XDEBUG_MODE=coverage && phpunit --colors=always --coverage-html reports tests",
+    "test-lint": "phpcs --standard=coding_standard.xml common.php tests public config",
+    "clean": "phpcbf --standard=coding_standard.xml common.php tests public config",
+    "test": [
+      "@test-lint",
+      "@test-stan",
+      "@test-unit"
+    ]
+  },
   "authors": [
     {
       "name": "My Name",
@@ -131,7 +141,7 @@ project/
 ## Configure PHPUnit
 1. Run the following command in a terminal
 ```bash
-./vendor/bin/phpunit --generate-configuration
+composer test-unit --generate-configuration
 ```
 2. Press enter and accept all the defaults.  This will create the file `phpunit.xml` in the root directory.
 3. Open the `phpunit.xml` file in a code editor.  
@@ -158,7 +168,7 @@ This will change the folder for test coverage.
 ## Run PHPUnit
 Let's test if PHPUnit has been configured. Run the following command
 ```bash
-./vendor/bin/phpunit
+composer test-unit
 ```
 You should see a similar output to the following:
 ```bash
@@ -207,13 +217,13 @@ This will ensure that we are following the PSR2 coding standard. We can add othe
 To make sure the PHP Code Sniffer works lets try it against our blank project.
 Run the following command:
 ```bash
-./vendor/bin/phpcs --standard=coding_standard.xml common.php tests public config
+composer test-lint
 ```
 If it works then no error or output will be reported
 
 The PHP Code Sniffer also comes with a command that will automatically fix any linting errors for use.  This command is called `phpcbf`. To run `phpcbf` enter the following in the terminal and press enter:
 ```bash
-./vendor/bin/phpcbf --standard=coding_standard.xml common.php tests public config
+composer clean
 ```
 You should see the following output:
 ```bash
@@ -240,7 +250,7 @@ parameters:
 ## Run PHPStan
 Let's run PHPStan to make sure it is set up correctly. Run the following command:
 ```bash
-./vendor/bin/phpstan
+composer test-stan
 ```
 Your output should be similar to the following
 
@@ -280,11 +290,12 @@ test: test-lint test-stan test-unit
 
 These are the following make commands:
 
-1. To run PHPStan `make test-stan`
-2. To run PHPUnit `make test-unit`
-3. To run PHPUnit with code coverage `make test-unit-coverage`
-4. To PHP Code Sniffer `make test-lint`
-5. To automatically clean the code with PHP Code Beautifier and Fixer `make clean`
+1. To run PHPStan `composer test-stan`
+2. To run PHPUnit `composer test-unit`
+3. To run PHPUnit with code coverage `composer test-unit-coverage`
+4. To PHP Code Sniffer `composer test-lint`
+5. To automatically clean the code with PHP Code Beautifier and Fixer `composer clean`
+6. To run PHPStan, PHPcs, PHPcbf and PHPUnit `composer test`
 
 [^ Back to top](lesson_1.md#what-you-will-learn)
 
@@ -298,7 +309,6 @@ project/
 │   composer.phar
 │   composer.json
 │   composer.lock
-│   Makefile
 │   phpstan.neon
 │   phpunit.xml
 │

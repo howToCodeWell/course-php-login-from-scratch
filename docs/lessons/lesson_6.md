@@ -24,7 +24,6 @@ project/
 │   composer.phar
 │   composer.json
 │   composer.lock
-│   Makefile
 │   phpstan.neon
 │   phpunit.xml
 │
@@ -87,7 +86,6 @@ project/
 │   composer.phar
 │   composer.json
 │   composer.lock
-│   Makefile
 │   phpstan.neon
 │   phpunit.xml
 │
@@ -127,7 +125,7 @@ public function testGetUserWithEmptyCredentials(): void
     $this->assertNull(getUser('', ''));
 }
 ```
-Run the tests `make tests`
+Run the tests `composer tests`
 
 You will get an error similar to this
 ```bash
@@ -150,7 +148,7 @@ This function takes two string parameters.  The first parameter is the `$usernam
 The function will return the user reference from the `$userConfig`.  If a user hasn't been found  then `null` will be returned.
 Currently, this function only returns `null` which is acceptable for our failing test.
 
-Run the tests again `make tests`
+Run the tests again `composer tests`
 This will still throw an error because the second issue hasn't been resolved.
 
 To fix this error, create the file `tests/bootstrap.php` and add the following
@@ -161,7 +159,7 @@ require_once dirname(__FILE__) . '/../common.php';
 ```
 This bootstrap file will require the autoloader from vendor and our `common.php` file.
 
-To include this boostrap file in our tests open `phpunit.xml` and change `bootstrap="vendor/autoload.php"` to `bootstrap="tests/bootstrap.php"` and re-run `make tests`. 
+To include this boostrap file in our tests open `phpunit.xml` and change `bootstrap="vendor/autoload.php"` to `bootstrap="tests/bootstrap.php"` and re-run `composer tests`. 
 
 The test should now pass.
 
@@ -176,7 +174,7 @@ public function testGetUserWithCorrectCredentials(): void
 Here we are looking for the return of the user reference that corresponds to the user that has the username of `howtocodewell1` and password `testHTCW`. 
 In this example the function `getUser()` should return the user reference `user_1`.
 
-When re-running `make tests` you should get the following error:
+When re-running `composer tests` you should get the following error:
 ```bash
 There was 1 failure:
 
@@ -200,7 +198,7 @@ function getUser(string $username, string $password): ?string
 Here we are looping over the constant `USER_CONFIG` that we defined earlier and pulling out the `$userData`. The `$userKey` variable holds the user reference of each user.
 Once the login is submitted we need check the supplied `$username` against the `$userData['username']` and the supplied `$password` against `$userData['password']`. If both match then we can return the `$userKey`. 
 
-After changing `common.php` re-run `make tests`.  All tests should now pass.
+After changing `common.php` re-run `composer tests`.  All tests should now pass.
 
 So far we have tested getting a user with correct details and empty details. Let's also test incorrect details.
 
@@ -213,7 +211,7 @@ public function testGetUserWithIncorrectCredentials(): void
 }
 ```
 This test replicates submitting the wrong credentials on the login form. This should be covered by the first test that we created earlier but it is always a good idea to capture different edge cases.
-Re-run `make tests`. All tests should still pass.
+Re-run `composer tests`. All tests should still pass.
 
 
 [^ Back to top](lesson_6.md#what-you-will-learn)
@@ -296,7 +294,7 @@ Update the `main.css` add the following `alert-error` class.
     padding: 5px;
 }
 ```
-Re-run `make tests` to make sure everything is OK and then run the webserver. 
+Re-run `composer tests` to make sure everything is OK and then run the webserver. 
 Try logging in with correct and incorrect details.
 
 [Go to lesson index](index.md)

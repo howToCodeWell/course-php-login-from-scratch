@@ -56,7 +56,7 @@ class LoginTest extends TestCase
 ```
 This will call a function called `isLoggedIn` and check that it return `false` by default.  
 
-Run `make test`. The tests should fail with a similar error message
+Run `composer test`. The tests should fail with a similar error message
 
 ```php
 There was 1 error:
@@ -72,7 +72,7 @@ function isLoggedIn(): bool
     return false
 }
 ```
-Run `make test` again and all the tests should pass.
+Run `composer test` again and all the tests should pass.
 At the moment this function is just returning false. It needs to check if the user has been logged in and return true if the user has logged in. 
 
 When the user logs into the application their user reference will be stored in the session. We can check for the existence of this session variable.
@@ -90,7 +90,7 @@ function isLoggedIn(): bool
 The variable `$userKey` will be assigned the value stored in `$_SESSION['user_key']` or `null` if nothing is found.
 `$userKey` is then checked for `null`. If it is not `null` then `true` is returned.  This means there is a session with a stored `user_key`. If no user reference is stored then `$userKey` will be `null` and in this case `false` will be returned.
 
-Run `make test` again and all the tests should continue to pass.
+Run `composer test` again and all the tests should continue to pass.
 
 At this point `isLoggedIn` will always return false. The next test will be to check that when a valid session is found `isLoggedIn` will return `true`.
 
@@ -101,7 +101,7 @@ public function testIsLoggedIn(): void
     $this->assertTrue(isLoggedIn());
 }
 ```
-Run `make tests` and you should see a similar error
+Run `composer tests` and you should see a similar error
 ```bash
 There was 1 failure:
 
@@ -125,7 +125,7 @@ public function testIsLoggedIn(): void
 }
 ```
 
-Run `make test` again and all tests should pass.
+Run `composer test` again and all tests should pass.
 
 To check if the user has logged into the application `isLoggedIn()` can now be called from the `dashboard.php`
 ```php
@@ -186,7 +186,7 @@ public function testGetUserKeyWhenNotSet(): void
 }
 ```
 
-After running `make test` you should get a similar error message.
+After running `composer test` you should get a similar error message.
 
 ```bash
 There was 1 error:
@@ -216,7 +216,7 @@ public function testGetUserKeyWhenSet(): void
 }
 ```
 
-All the tests should pass after running `make test`.
+All the tests should pass after running `composer test`.
 
 Now the correct `user_key` is being returned a users order can now be displayed.
 
@@ -228,7 +228,7 @@ public function testGetUserNameWhenNotSet(): void
     $this->assertEmpty(getUsername());
 }
 ```
-Run `make test` and you should get a similar error
+Run `composer test` and you should get a similar error
 
 ```bash
 There was 1 error:
@@ -248,7 +248,7 @@ function getUsername(): string
 This function will get the `$userKey` which could either be a `string` or  `null`. From this `$userKey` the username is returned based on what is stored in the `USER_CONFIG` array.
 If the username cannot be found then `null` will be returned.
 
-All the tests should now pass after running `make test`.
+All the tests should now pass after running `composer test`.
 
 Let's also make sure that a valid username is returned when a `user_key` is set in the session.  Create the following test in `UserTest.php`
 
@@ -262,7 +262,7 @@ public function testGetUsernameWhenSet(): void
 }
 ```
 
-All the tests should pass after running `make test`.
+All the tests should pass after running `composer test`.
 
 Now the correct username can be returned from a logged in user it is time to update `dashboard.php` to get the correct user order.
 Alter `dashboard.php` and change the hardcoded username to the `getUsername` function call.

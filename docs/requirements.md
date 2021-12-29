@@ -7,7 +7,6 @@
 - PHP 8+
 - PHP Xdebug 3.1.1
 - Windows, MacOS, Linux
-- Make
 - Browser (Chrome)
 - Any IDE that can read PHP, CSS and HTML. PHPStorm will be used in the videos
 

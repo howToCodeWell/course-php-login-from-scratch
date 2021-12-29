@@ -21,7 +21,6 @@ project/
 │   composer.phar
 │   composer.json
 │   composer.lock
-│   Makefile
 │   phpstan.neon
 │   phpunit.xml
 │
@@ -112,7 +111,6 @@ project/
 │   composer.phar
 │   composer.json
 │   composer.lock
-│   Makefile
 │   phpstan.neon
 │   phpunit.xml
 │
@@ -154,7 +152,7 @@ public function testGetOrdersWithEmptyUsername(): void
     $this->assertNull(getOrders(''));
 }
 ```
-After running `make test` you should see the following error
+After running `composer test` you should see the following error
 ```php
 There was 1 error:
 
@@ -171,7 +169,7 @@ function getOrders(string $userName): ?array
     return null;
 }
 ```
-Run `make test` again the and the tests should pass.
+Run `composer test` again the and the tests should pass.
 
 Now we need to return the correct order for a given username.
 
@@ -183,7 +181,7 @@ public function testGetOrdersWithCorrectUsername(): void
     $this->assertIsArray(getOrders('howtocodewell2'));
 }
 ```
-Run `make test` and notice a similar failure message:
+Run `composer test` and notice a similar failure message:
 ```php
 There was 1 failure:
 
@@ -207,7 +205,7 @@ function getOrders(string $userName): ?array
 ```
 This loops over the `ORDER_CONFIG` array and looks for the `user` element that matches the supplied `$username` variable. If a match is found then the `$order` is returned. If no matches are found then `null` is returned.
 
-Re run `make test` and notice the following error with PHPStan.  
+Re run `composer test` and notice the following error with PHPStan.  
 ```bash
 ./vendor/bin/phpstan
 Note: Using configuration file /code/howtocodewell/courses/course-php-login/project/phpstan.neon.
@@ -222,10 +220,6 @@ Note: Using configuration file /code/howtocodewell/courses/course-php-login/proj
 
                                                                                                                         
  [ERROR] Found 1 error                                                                                                  
-                                                                                                                        
-
-make: *** [test-stan] Error 1
-
 ```
 This error happens because we are trying to access array elements without defining the shape of the returned array.
 To fix this error add the following PHP docblock to the `getOrders` function in `common.php`
@@ -247,7 +241,7 @@ To fix this error add the following PHP docblock to the `getOrders` function in 
  */
 ```
 The return part of the docblock defines the shape of the array with the nested array keys and the data types.
-Re-run `make test`. All test should pass.
+Re-run `composer test`. All test should pass.
 
 [Go to lesson index](index.md)
 

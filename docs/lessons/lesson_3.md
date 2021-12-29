@@ -20,7 +20,6 @@ project/
 │   composer.phar
 │   composer.json
 │   composer.lock
-│   Makefile
 │   phpstan.neon
 │   phpunit.xml
 │

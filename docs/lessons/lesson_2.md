@@ -25,7 +25,6 @@ project/
 │   composer.phar
 │   composer.json
 │   composer.lock
-│   Makefile
 │   phpstan.neon
 │   phpunit.xml
 │
@@ -162,7 +161,7 @@ if ($hasSubmitted) {
 [^ Back to top](lesson_2.md#what-you-will-learn)
 
 ## Check your code
-Run `make test` in the project root folder to run the code tests.  Fix any issues that you may have.
+Run `composer test` in the project root folder to run the code tests.  Fix any issues that you may have.
 
 
 [Go to lesson index](index.md)

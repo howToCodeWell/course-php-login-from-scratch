@@ -63,7 +63,7 @@ Each item will need its own row in the table. Create a `foreach` loop in the `<t
     </tbody>
 </table>
 ```
-Run `make test` and you should get the following error:
+Run `composer test` and you should get the following error:
 
 ```bash
 ./vendor/bin/phpstan
@@ -79,9 +79,6 @@ Note: Using configuration file /code/howtocodewell/courses/course-php-login/proj
 
                                                                                                                         
  [ERROR] Found 1 error                                                                                                  
-                                                                                                                        
-
-make: *** [test-stan] Error 1
 ```
 
 This error is due to the missing offest `items` in the variable `$items`. We know that this is an array however it technically could be `null` as the user may not exist or the user may not have any orders.
@@ -90,7 +87,7 @@ Adjust the `$items` variable assignment to use the nullish coalescing operator `
 ```php
 $items = $orders['items'] ?? [];
 ```
-After this adjustment re-run `make test`. All tests should now pass.
+After this adjustment re-run `composer test`. All tests should now pass.
 
 ## Alternate the order item table row colours
 Create two CSS classes in `public/assets/main.css` that will handle the alternating row colours.
