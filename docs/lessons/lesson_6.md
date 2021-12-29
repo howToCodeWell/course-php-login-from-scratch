@@ -254,7 +254,6 @@ We can check if the `$userKey` is not `null`, set the session and redirect the u
 Alter `login.php` with the following:
 ```php
 <?php
-session_start();
 require_once '../common.php';
 
 $submitted = $_POST['submit'] ?? '';
@@ -262,7 +261,6 @@ $hasSubmitted = ($submitted === 'Login');
 $error = null;
 
 if ($hasSubmitted) {
-    $_SESSION['user_key'] = null;
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
 

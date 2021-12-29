@@ -26,7 +26,7 @@ class UserTest extends TestCase
         $this->assertEmpty(getUsername());
     }
 
-    public function testGetUserNameWhenSet(): void
+    public function testGetUsernameWhenSet(): void
     {
         $userKey = 'user_1';
         $username = 'howtocodewell1';

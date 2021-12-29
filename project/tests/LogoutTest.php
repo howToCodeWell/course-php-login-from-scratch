@@ -5,7 +5,6 @@ namespace Test;
 
 use PHPUnit\Framework\TestCase;
 
-//require_once dirname(__FILE__) . '/../common.php';
 
 class LogoutTest extends TestCase
 {
