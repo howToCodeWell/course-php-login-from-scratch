@@ -165,6 +165,4 @@ Run `composer test` in the project root folder to run the code tests.  Fix any i
 
 [^ Back to top](lesson_2.md#what-you-will-learn)
 
-[Go to lesson index](index.md)
-
-[Go back to readme](../../README.md)
+[<<< Go back to readme](../../README.md) | [<< Go to lesson index](index.md) | [< Go to previous lesson](lesson_1.md) | [Go to next lesson >](lesson_3.md) 

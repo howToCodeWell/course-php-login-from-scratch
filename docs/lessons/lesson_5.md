@@ -89,6 +89,4 @@ th {
 ```
 [^ Back to top](lesson_4.md#what-you-will-learn)
 
-[Go to lesson index](index.md)
-
-[Go back to readme](../../README.md)
+[<<< Go back to readme](../../README.md) | [<< Go to lesson index](index.md) | [< Go to previous lesson](lesson_4.md) | [Go to next lesson >](lesson_6.md)

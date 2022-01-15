@@ -156,6 +156,4 @@ Visit the page in the browser and check the output
 
 [^ Back to top](lesson_3.md#what-you-will-learn)
 
-[Go to lesson index](index.md)
-
-[Go back to readme](../../README.md)
+[<<< Go back to readme](../../README.md) | [<< Go to lesson index](index.md) | [< Go to previous lesson](lesson_2.md) | [Go to next lesson >](lesson_4.md) 

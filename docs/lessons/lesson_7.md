@@ -246,6 +246,4 @@ Re-run `composer test`. All test should pass.
 
 [^ Back to top](lesson_7.md#what-you-will-learn)
 
-[Go to lesson index](index.md)
-
-[Go back to readme](../../README.md)
+[<<< Go back to readme](../../README.md) | [<< Go to lesson index](index.md) | [< Go to previous lesson](lesson_6.md) | [Go to next lesson >](lesson_8.md)

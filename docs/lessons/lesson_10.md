@@ -167,6 +167,4 @@ If this isn't working or if you have errors in the code then run `composer test`
 
 [^ Back to top](lesson_10.md#what-you-will-learn)
 
-[Go to lesson index](index.md)
-
-[Go back to readme](../../README.md)
+[<<< Go back to readme](../../README.md) | [<< Go to lesson index](index.md) | [< Go to previous lesson](lesson_9.md)
