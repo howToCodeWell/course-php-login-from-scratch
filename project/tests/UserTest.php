@@ -5,12 +5,11 @@ namespace Test;
 
 use PHPUnit\Framework\TestCase;
 
-//require_once dirname(__FILE__) . '/../common.php';
-
 class UserTest extends TestCase
 {
     public function testGetUserKeyWhenNotSet(): void
     {
+        unset($_SESSION);
         $this->assertNull(getUserKey());
     }
 
@@ -26,7 +25,7 @@ class UserTest extends TestCase
         $this->assertEmpty(getUsername());
     }
 
-    public function testGetUserNameWhenSet(): void
+    public function testGetUsernameWhenSet(): void
     {
         $userKey = 'user_1';
         $username = 'howtocodewell1';
