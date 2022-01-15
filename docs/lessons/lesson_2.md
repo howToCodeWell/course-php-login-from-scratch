@@ -20,14 +20,13 @@ Create a new file called `login.php` in the public folder.
 ```
 project/
 │   .gitignore
+└───.phpunit.cache/
 │   coding_standard.xml
 │   common.php
-│   composer.phar
 │   composer.json
 │   composer.lock
 │   phpstan.neon
 │   phpunit.xml
-│
 └───config/
 └───public/
 |   └───assets/
@@ -165,6 +164,4 @@ Run `composer test` in the project root folder to run the code tests.  Fix any i
 
 [^ Back to top](lesson_2.md#what-you-will-learn)
 
-[Go to lesson index](index.md)
-
-[Go back to readme](../../README.md)
+[<<< Go back to readme](../../README.md) | [<< Go to lesson index](index.md) | [< Go to previous lesson](lesson_1.md) | [Go to next lesson >](lesson_3.md) 

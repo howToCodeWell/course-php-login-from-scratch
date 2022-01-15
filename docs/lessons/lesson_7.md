@@ -16,17 +16,16 @@ Create the file `orderConfig.php` in the `config` folder
 ```
 project/
 │   .gitignore
+└───.phpunit.cache/
 │   coding_standard.xml
 │   common.php
-│   composer.phar
 │   composer.json
 │   composer.lock
 │   phpstan.neon
 │   phpunit.xml
-│
 └───config/
-│   userConfig.php
-│   orderConfig.php
+│       userConfig.php
+│       orderConfig.php
 └───public/
 |   └───assets/
 │       main.css
@@ -107,16 +106,16 @@ Create the test file `tests/OrdersTest.php`
 ```
 project/
 │   .gitignore
+└───.phpunit.cache/
 │   coding_standard.xml
 │   common.php
-│   composer.phar
 │   composer.json
 │   composer.lock
 │   phpstan.neon
 │   phpunit.xml
-│
 └───config/
-│   userConfig.php
+│       userConfig.php
+│       orderConfig.php
 └───public/
 |   └───assets/
 │             main.css
@@ -246,6 +245,4 @@ Re-run `composer test`. All test should pass.
 
 [^ Back to top](lesson_7.md#what-you-will-learn)
 
-[Go to lesson index](index.md)
-
-[Go back to readme](../../README.md)
+[<<< Go back to readme](../../README.md) | [<< Go to lesson index](index.md) | [< Go to previous lesson](lesson_6.md) | [Go to next lesson >](lesson_8.md)

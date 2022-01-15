@@ -14,8 +14,6 @@ Hello and welcome to the How To Code Well PHP login course.  This is a beginner-
 - Please alter the code or created something similar with the code. Sometimes the best way to learn web development is to take what you already know and improve or alter it.
 
 ## Debugging the application
-To debug the code run `composer test` or the other composer scripts found in the `composer.json` file.  Read the output carefully as it will oftern hint at files and line numbers that caused the error.
+To debug the code run `composer test` or the other composer scripts found in the `composer.json` file.  Read the output carefully as it will often hint at files and line numbers that contain any errors.
 
-[Go to lesson index](index.md)
-
-[Go back to readme](../../README.md)
+[<<< Go back to readme](../../README.md) | [<< Go to lesson index](index.md) | [Go to next lesson >](lesson_1.md) 

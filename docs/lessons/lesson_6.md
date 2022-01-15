@@ -19,14 +19,13 @@ Create the file `userConfig.php` in the `config` folder
 ```
 project/
 │   .gitignore
+└───.phpunit.cache/
 │   coding_standard.xml
 │   common.php
-│   composer.phar
 │   composer.json
 │   composer.lock
 │   phpstan.neon
 │   phpunit.xml
-│
 └───config/
 │   userConfig.php
 └───public/
@@ -81,14 +80,13 @@ Create a `tests/UserTest.php`
 ```
 project/
 │   .gitignore
+└───.phpunit.cache/
 │   coding_standard.xml
 │   common.php
-│   composer.phar
 │   composer.json
 │   composer.lock
 │   phpstan.neon
 │   phpunit.xml
-│
 └───config/
 │   userConfig.php
 └───public/
@@ -299,6 +297,4 @@ Try logging in with correct and incorrect details.
 
 [^ Back to top](lesson_6.md#what-you-will-learn)
 
-[Go to lesson index](index.md)
-
-[Go back to readme](../../README.md)
+[<<< Go back to readme](../../README.md) | [<< Go to lesson index](index.md) | [< Go to previous lesson](lesson_5.md) | [Go to next lesson >](lesson_7.md)

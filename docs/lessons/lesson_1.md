@@ -53,13 +53,11 @@ A single PHP file will be used to hold common functions.  Create a file called `
 [^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Download Composer
-In order to install the required PHP packages we need to install a PHP package manager called Composer.  This can be downloaded from [their website](https://getcomposer.org/).
-Once composer has been installed you should have a `composer.phar` file the project root.
+In order to install the required PHP packages we need to install a PHP package manager called Composer.  Download composer if you haven't done so already. This can be downloaded from [their website](https://getcomposer.org/).
+Once composer has been installed you should have a `composer.phar` file. Move this file so it is on Your system `$PATH`. Follow the documentation the on [the Composer](https://getcomposer.org/) for a guide.
 ```
 project/
-│   composer.phar
 │   common.php
-│
 └───config/
 └───public/
 |   └───assets/
@@ -106,10 +104,8 @@ Create a `composer.json` file in the project root and include `phpunit/phpunit`,
 
 ```
 project/
-│   composer.phar
 │   composer.json
 │   common.php
-│
 └───config/
 └───public/
 |   └───assets/
@@ -123,16 +119,14 @@ project/
 
 Run the following command in the terminal to install the composer packages.
 ```bash
-composer.phar install
+composer install
 ```
 This will create a vendor directory in the project root that contains the required packages. This command will also create a `composer.lock` file which contains meta information about the packages that have been installed
 ```
 project/
-│   composer.phar
 │   composer.json
 │   composer.lock
 │   common.php
-│
 └───config/
 └───public/
 |   └───assets/
@@ -146,9 +140,9 @@ project/
 ## Configure PHPUnit
 1. Run the following command in a terminal
 ```bash
-composer test-unit --generate-configuration
+./vendor/bin/phpunit --generate-configuration
 ```
-2. Press enter and accept all the defaults.  This will create the file `phpunit.xml` in the root directory.
+2. Press enter and accept all the defaults.  This will create the file `phpunit.xml` in the project directory.
 3. Open the `phpunit.xml` file in a code editor.  
 4. Change the following
 ```xml
@@ -166,7 +160,7 @@ to
     </testsuite>
 </testsuites>
 ```
-This will change the folder for test coverage.
+This will change the folder of the test coverage.
 
 [^ Back to top](lesson_1.md#what-you-will-learn)
 
@@ -188,12 +182,11 @@ No tests executed!
 You should also see a folder called `.phpunit.cache` in the project root
 ```
 project/
-│   composer.phar
+│   .gitignore
+└───.phpunit.cache/
 │   composer.json
 │   composer.lock
 │   common.php
-│
-└───.phpunit.cache/
 └───config/
 └───public/
 |   └───assets/
@@ -219,14 +212,14 @@ This will ensure that we are following the PSR2 coding standard. We can add othe
 [^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Run PHP Code Sniffer
-To make sure the PHP Code Sniffer works lets try it against our blank project.
+To make sure the PHP Code Sniffer works lets try it against our project.
 Run the following command:
 ```bash
 composer test-lint
 ```
 If it works then no error or output will be reported
 
-The PHP Code Sniffer also comes with a command that will automatically fix any linting errors for use.  This command is called `phpcbf`. To run `phpcbf` enter the following in the terminal and press enter:
+The PHP Code Sniffer also comes with a command that will automatically fix some linting errors.  This command is called `phpcbf`. To run `phpcbf` enter the following in the terminal and press enter:
 ```bash
 composer clean
 ```
@@ -289,14 +282,13 @@ Your project folder should look like this.  If it doesn't then please review ste
 ```
 project/
 │   .gitignore
+└───.phpunit.cache/
 │   coding_standard.xml
 │   common.php
-│   composer.phar
 │   composer.json
 │   composer.lock
 │   phpstan.neon
 │   phpunit.xml
-│
 └───config/
 └───public/
 |   └───assets/
@@ -306,6 +298,4 @@ project/
 ```
 [^ Back to top](lesson_1.md#what-you-will-learn)
 
-[Go to lesson index](index.md) 
-
-[Go back to readme](../../README.md)
+[<<< Go back to readme](../../README.md) | [<< Go to lesson index](index.md) | [< Go to previous lesson](lesson_0.md) | [Go to next lesson >](lesson_2.md) 

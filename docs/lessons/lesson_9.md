@@ -295,6 +295,4 @@ After logging into the application and going to `dashboard.php` in the browser, 
 
 [^ Back to top](lesson_9.md#what-you-will-learn)
 
-[Go to lesson index](index.md)
-
-[Go back to readme](../../README.md)
+[<<< Go back to readme](../../README.md) | [<< Go to lesson index](index.md) | [< Go to previous lesson](lesson_8.md) | [Go to next lesson >](lesson_10.md)

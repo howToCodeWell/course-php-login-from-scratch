@@ -15,14 +15,13 @@ Create a new file called `dashboard.php` in the public folder.
 ```
 project/
 │   .gitignore
+└───.phpunit.cache/
 │   coding_standard.xml
 │   common.php
-│   composer.phar
 │   composer.json
 │   composer.lock
 │   phpstan.neon
 │   phpunit.xml
-│
 └───config/
 └───public/
 |   └───assets/
@@ -156,6 +155,4 @@ Visit the page in the browser and check the output
 
 [^ Back to top](lesson_3.md#what-you-will-learn)
 
-[Go to lesson index](index.md)
-
-[Go back to readme](../../README.md)
+[<<< Go back to readme](../../README.md) | [<< Go to lesson index](index.md) | [< Go to previous lesson](lesson_2.md) | [Go to next lesson >](lesson_4.md) 

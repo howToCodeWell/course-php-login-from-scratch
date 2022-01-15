@@ -202,6 +202,4 @@ $items = $orders['items'] ?? [];
 ```
 [^ Back to top](lesson_8.md#what-you-will-learn)
 
-[Go to lesson index](index.md)
-
-[Go back to readme](../../README.md)
+[<<< Go back to readme](../../README.md) | [<< Go to lesson index](index.md) | [< Go to previous lesson](lesson_7.md) | [Go to next lesson >](lesson_9.md)
