@@ -24,14 +24,13 @@ Create a new file called `main.css` in the assets folder.
 ```
 project/
 │   .gitignore
+└───.phpunit.cache/
 │   coding_standard.xml
 │   common.php
-│   composer.phar
 │   composer.json
 │   composer.lock
 │   phpstan.neon
 │   phpunit.xml
-│
 └───config/
 └───public/
 |   └───assets/

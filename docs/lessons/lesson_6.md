@@ -19,14 +19,13 @@ Create the file `userConfig.php` in the `config` folder
 ```
 project/
 │   .gitignore
+└───.phpunit.cache/
 │   coding_standard.xml
 │   common.php
-│   composer.phar
 │   composer.json
 │   composer.lock
 │   phpstan.neon
 │   phpunit.xml
-│
 └───config/
 │   userConfig.php
 └───public/
@@ -81,14 +80,13 @@ Create a `tests/UserTest.php`
 ```
 project/
 │   .gitignore
+└───.phpunit.cache/
 │   coding_standard.xml
 │   common.php
-│   composer.phar
 │   composer.json
 │   composer.lock
 │   phpstan.neon
 │   phpunit.xml
-│
 └───config/
 │   userConfig.php
 └───public/

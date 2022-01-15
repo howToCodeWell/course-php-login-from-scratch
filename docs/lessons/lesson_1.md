@@ -182,10 +182,11 @@ No tests executed!
 You should also see a folder called `.phpunit.cache` in the project root
 ```
 project/
+│   .gitignore
+└───.phpunit.cache/
 │   composer.json
 │   composer.lock
 │   common.php
-└───.phpunit.cache/
 └───config/
 └───public/
 |   └───assets/
@@ -281,7 +282,7 @@ Your project folder should look like this.  If it doesn't then please review ste
 ```
 project/
 │   .gitignore
-|   .phpunit.cache
+└───.phpunit.cache/
 │   coding_standard.xml
 │   common.php
 │   composer.json

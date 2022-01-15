@@ -16,17 +16,16 @@ Create the file `orderConfig.php` in the `config` folder
 ```
 project/
 │   .gitignore
+└───.phpunit.cache/
 │   coding_standard.xml
 │   common.php
-│   composer.phar
 │   composer.json
 │   composer.lock
 │   phpstan.neon
 │   phpunit.xml
-│
 └───config/
-│   userConfig.php
-│   orderConfig.php
+│       userConfig.php
+│       orderConfig.php
 └───public/
 |   └───assets/
 │       main.css
@@ -107,16 +106,16 @@ Create the test file `tests/OrdersTest.php`
 ```
 project/
 │   .gitignore
+└───.phpunit.cache/
 │   coding_standard.xml
 │   common.php
-│   composer.phar
 │   composer.json
 │   composer.lock
 │   phpstan.neon
 │   phpunit.xml
-│
 └───config/
-│   userConfig.php
+│       userConfig.php
+│       orderConfig.php
 └───public/
 |   └───assets/
 │             main.css

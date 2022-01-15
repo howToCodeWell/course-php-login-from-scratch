@@ -15,14 +15,13 @@ Create a new file called `dashboard.php` in the public folder.
 ```
 project/
 │   .gitignore
+└───.phpunit.cache/
 │   coding_standard.xml
 │   common.php
-│   composer.phar
 │   composer.json
 │   composer.lock
 │   phpstan.neon
 │   phpunit.xml
-│
 └───config/
 └───public/
 |   └───assets/
