@@ -1,6 +1,4 @@
 image: alpine
-tags:
-  - test
 
 stages:
   - build
@@ -8,6 +6,8 @@ stages:
 
 job1:
   stage: build
+  tags:
+    - test
   script:
     - composer --working-dir=project install
   artifacts:
@@ -16,5 +16,7 @@ job1:
 
 job2:
   stage: test
+  tags:
+    - test
   script:
     - composer --working-dir=project test
