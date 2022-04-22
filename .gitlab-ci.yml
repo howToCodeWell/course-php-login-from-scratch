@@ -1,4 +1,6 @@
 image: alpine
+tags:
+  - test
 
 stages:
   - build
