@@ -4,7 +4,7 @@ stages:
   - build
   - test
 
-job1:
+build:
   stage: build
   tags:
     - test
@@ -14,7 +14,7 @@ job1:
     paths:
       - ./
 
-job2:
+test:
   stage: test
   tags:
     - test
