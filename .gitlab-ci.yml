@@ -1,0 +1,18 @@
+image: alpine
+
+stages:
+  - build
+  - test
+
+job1:
+  stage: build
+  script:
+    - composer --working-dir=project install
+  artifacts:
+    paths:
+      - ./
+
+job2:
+  stage: test
+  script:
+    - composer --working-dir=project test
