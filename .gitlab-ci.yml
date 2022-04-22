@@ -12,7 +12,7 @@ build:
     - composer --working-dir=project install
   artifacts:
     paths:
-      - ./builds
+      - ./
 
 test:
   stage: test
