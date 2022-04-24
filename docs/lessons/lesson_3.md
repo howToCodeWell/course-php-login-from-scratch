@@ -13,7 +13,7 @@
 
 Create a new file called `dashboard.php` in the public folder.
 ```
-project/
+my_project/
 │   .gitignore
 └───.phpunit.cache/
 │   coding_standard.xml
@@ -35,7 +35,7 @@ project/
 
 ## Add the HTML structure
 
-In the new `login.php` file start by adding the skelton HTML structure like so:
+In the new `dashboard.php` file start by adding the following HTML structure
 
 ```html
 <html lang="en">

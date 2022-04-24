@@ -14,7 +14,7 @@
 ## Create order config
 Create the file `orderConfig.php` in the `config` folder
 ```
-project/
+my_project/
 │   .gitignore
 └───.phpunit.cache/
 │   coding_standard.xml
@@ -104,7 +104,7 @@ define('ORDER_CONFIG', $orderConfig);
 We need to create a function that will return the orders for a given user.
 Create the test file `tests/OrdersTest.php`
 ```
-project/
+my_project/
 │   .gitignore
 └───.phpunit.cache/
 │   coding_standard.xml

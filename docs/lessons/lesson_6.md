@@ -2,7 +2,7 @@
 
 # What you will learn
  - Creating associative arrays
- - Accessing posted form values
+ - Accessing POSTed form values
  - Configuring PHPUnit
  - TDD (Test Driven Development)
 
@@ -17,7 +17,7 @@
 ## Create user config
 Create the file `userConfig.php` in the `config` folder
 ```
-project/
+my_project/
 │   .gitignore
 └───.phpunit.cache/
 │   coding_standard.xml

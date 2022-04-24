@@ -22,7 +22,7 @@
 
 Create a new file called `main.css` in the assets folder.
 ```
-project/
+my_project/
 │   .gitignore
 └───.phpunit.cache/
 │   coding_standard.xml
@@ -45,7 +45,7 @@ project/
 
 ## Style the document body
 
-In `main.css` add a block for the body element
+In `assets/main.css` add a block for the body element
 ```css
 body {
     font-size: 16px;
@@ -56,7 +56,7 @@ body {
 [^ Back to top](lesson_4.md#what-you-will-learn)
 
 ## Link the stylesheet to the login page
-Open`login.php` and add the following to include the stylesheet
+Open `public/login.php` and add the following to include the stylesheet
 ```html
 <html lang="en">
 <head>
@@ -78,7 +78,9 @@ Put the form element inside a main element
 [^ Back to top](lesson_4.md#what-you-will-learn)
 
 ## Style the main element
-Add the following to the `main.css` file. Setting the `display` to `flex` and `justify-content` to `center` will center the form on the page.
+Add the following to the `assets/main.css` file. 
+
+Setting the `display` to `flex` and `justify-content` to `center` will center the form on the page.
 ```css
 
 main {
@@ -111,7 +113,9 @@ Place the form elements in a div with `class=form-content`
 [^ Back to top](lesson_4.md#what-you-will-learn)
 
 ## Style the form container
-Add the following to the `main.css` file. This will add a background colour and padding to the form container.
+Add the following to the `assets/main.css` file. 
+
+This will add a background colour and padding to the form container.
 
 ```css
 .form-content {
@@ -151,14 +155,30 @@ Within the `form-content` wrap each input and label group in a `input-container`
 [^ Back to top](lesson_4.md#what-you-will-learn)
 
 ## Style the form input containers
-In `main.css` add the following.  This will git the containers a margin and width
+In `main.css` add the following.  This will give the containers a margin and a width
 ```css
 .input-container {
     margin: 10px;
     width: 100%;
 }
 ```
-Add the following the `main.css` to set the width and display of the labels within the input container.
+
+Add an override style for the input button container
+```css
+.input-button-container {
+    display: flex;
+    justify-content: end;
+    width: auto;
+}
+```
+Add this override to the input container div like so
+```html
+<div class="input-container input-button-container">
+    <input type="submit" value="Login" name="submit" required/>
+</div>
+```
+
+Add the following the to the `assets/main.css` file to set the width and display of the labels within the input containers.
 ```css
 .input-container label {
     width: 100px;
@@ -170,13 +190,14 @@ Add the following the `main.css` to set the width and display of the labels with
 
 ## Style the input elements
 
-To se the width of both the password and text input types add the following:
+To set the width of both the password and text input types add the following to `assets/main.css`
 ```css
 .input-container input[type=text], .input-container input[type=password] {
     width: 250px;
 }
 ```
-Give each input a padding and border
+
+Give each input a padding and a border
 ```css
 input {
     padding: 5px;
@@ -197,9 +218,10 @@ Change the background colour of the submit buttons hover state.
 ```css
 input[type=submit]:hover {
     background-color: dodgerblue;
+    cursor: pointer;
 }
 ```
-Give the form element 100px margin top
+Give the form element a margin top of `100px`
 ```css
 form {
     margin-top: 100px;
@@ -208,7 +230,7 @@ form {
 [^ Back to top](lesson_4.md#what-you-will-learn)
 
 ### Check the CSS file
-The `main.css` should look similar to this this
+The `main.css` should look similar to this
 ```css
 body {
     font-size: 16px;
@@ -267,14 +289,14 @@ input[type=submit] {
     border: none;
 }
 
-input[type=submit]:hover {
-    cursor: pointer;
-}
 
 input[type=submit]:hover {
     background-color: dodgerblue;
 }
 ```
+
+Visit the page in the browser and check the output http://localhost:8080/login.php
+
 [^ Back to top](lesson_4.md#what-you-will-learn)
 
 [<<< Go back to readme](../../README.md) | [<< Go to lesson index](index.md) | [< Go to previous lesson](lesson_3.md) | [Go to next lesson >](lesson_5.md)

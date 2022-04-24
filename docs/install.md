@@ -6,14 +6,15 @@
 ## Set up the project files for reference
 1. Ensure that your system meets the [system requirements](requirements.md)
 2. Download the latest release from [howtocodewell.net](https://howtocodewell.net)
-3. Run composer install in the project directory
+3. Change to the project directory
+4. Run composer install in the project directory
 ```bash
-$ cd  ~/code/course-php-login
+$ cd /path/to/course
 $ cd project
 $ composer install
 ```
 
-4. Run composer test to ensure the project has been created successfully
+4. Run `composer test` to ensure the project has been created successfully
 ```bash
 $ composer test
 ```
@@ -35,7 +36,7 @@ Note: Using configuration file /home/pfwd/code/course-php-login-master/project/p
 PHPUnit 9.5.11 by Sebastian Bergmann and contributors.
 
 Runtime:       PHP 8.0.14
-Configuration: /home/pfwd/code/course-php-login-master/project/phpunit.xml
+Configuration: /home/pfwd/code/course-php-login/project/phpunit.xml
 
 ............                                                      12 / 12 (100%)
 
@@ -49,17 +50,17 @@ OK (12 tests, 12 assertions)
 $ cd public
 $ php -S localhost:8080
 ```
-6. Go to [localhost:8080](http://localhost:8080) in your browser
+6. Go to [localhost:8080](http://localhost:8080) in your browser.
 You should see a webpage similar to this
 
 ![Login screen](images/login_screen.png) 
 
 ## Set your project for learning
 
-1.  Create a directory for your project
+1.  Create a directory for your custom project
 ```bash
-$ cd ~/code
-$ mkdir project
+$ cd /path/to/course
+$ mkdir my_project
 ```
 
 2. Follow the instructions from [lesson 0](lessons/lesson_0.md)

@@ -10,8 +10,8 @@ Hello and welcome to the How To Code Well PHP login course.  This is a beginner-
 ## How to use the project code
 - Please make sure you are using the latest version of the project.
 - Please see the project code as guide or reference for your work.  
-- Please try not to copy the code line by line as typing out the code will help you to remember what you have created adn what commands you used.
-- Please alter the code or created something similar with the code. Sometimes the best way to learn web development is to take what you already know and improve or alter it.
+- Please try not to copy the code line by line as typing out the code will help you to remember what you have created and what commands you have used.
+- Please alter the code or create something similar with the code. Sometimes the best way to learn web development is to take what you already know and improve or alter it.
 
 ## Debugging the application
 To debug the code run `composer test` or the other composer scripts found in the `composer.json` file.  Read the output carefully as it will often hint at files and line numbers that contain any errors.
