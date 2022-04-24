@@ -2,7 +2,7 @@
 
 # What you will learn
  - Creating associative arrays
- - Accessing posted form values
+ - Accessing POSTed form values
  - Configuring PHPUnit
  - TDD (Test Driven Development)
 

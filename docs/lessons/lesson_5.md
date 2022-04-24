@@ -9,6 +9,7 @@
 3. [Style the username](lesson_5.md#style-the-username)
 4. [Style the table elements](lesson_5.md#style-the-table-elements)
 
+## Link the stylesheet to the login page
 Open `public/dashboard.php` and link the `main.css` stylesheet
 ```html
 <html lang="en">
@@ -18,14 +19,14 @@ Open `public/dashboard.php` and link the `main.css` stylesheet
 ```
 
 ## Add the username to the secure area
-Add the following to `dashboard.php`. We will be updating the username dynamically later
+Add the following to `public/dashboard.php`. We will be updating the username dynamically later
 ```html
 <body>
     <header>
         <p>Welcome, TestUser Name</p>
     </header>
 ```
-Also add a `<main>` element to the HTML. The `dashboard.php` should now look like this
+Also add a `<main>` element to the HTML. The `public/dashboard.php` should now look like this
 
 ```html
 
@@ -60,7 +61,7 @@ Also add a `<main>` element to the HTML. The `dashboard.php` should now look lik
 </html>
 ```
 ## Style the username
-Open `main.css` and add the following to style the header element
+Open `assets/main.css` and add the following to style the header element
 ```css
 header {
     text-align: center;
@@ -87,6 +88,9 @@ th {
     color: #f687b3;
 }
 ```
+
+Visit the page in the browser and check the output [http://localhost:8080/dashboard.php](http://localhost:8080/dashboard.php)
+
 [^ Back to top](lesson_4.md#what-you-will-learn)
 
 [<<< Go back to readme](../../README.md) | [<< Go to lesson index](index.md) | [< Go to previous lesson](lesson_4.md) | [Go to next lesson >](lesson_6.md)
