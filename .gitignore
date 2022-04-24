@@ -3,3 +3,4 @@
 vendor
 reports
 !reports/.gitkeep
+dist
