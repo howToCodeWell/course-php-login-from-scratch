@@ -37,7 +37,7 @@ my_project/
 └───tests/
 ```
 
-If you intend on storing the project in a git repository you will need the following `.gitignore` file in the project directory
+If you intend on storing the project in a git repository you will need the following `.gitignore` file in the `my_project` directory
 ```
 .idea
 .phpunit.cache
@@ -55,16 +55,7 @@ A single PHP file will be used to hold common functions.  Create a file called `
 
 ## Download Composer
 In order to install the required PHP packages we need to install a PHP package manager called Composer.  Download composer if you haven't done so already. This can be downloaded from [their website](https://getcomposer.org/).
-Once composer has been installed you should have a `composer.phar` file. Move this file so it is on Your system `$PATH`. Follow the documentation the on [the Composer](https://getcomposer.org/) for a guide.
-```
-my_project/
-│   common.php
-└───config/
-└───public/
-|   └───assets/
-└───reports/
-└───tests/
-```
+Once composer has been installed you should have a `composer.phar` file. Move this file so it is on your system `$PATH`. Follow the documentation the on [the Composer](https://getcomposer.org/) for a guide.
 
 [^ Back to top](lesson_1.md#what-you-will-learn)
 
@@ -105,6 +96,7 @@ Create a `composer.json` file in the project root and include `phpunit/phpunit`,
 
 ```
 my_project/
+|   .gitignore
 │   composer.json
 │   common.php
 └───config/
@@ -125,6 +117,7 @@ composer install
 This will create a vendor directory in the project root that contains the required packages. This command will also create a `composer.lock` file which contains meta information about the packages that have been installed
 ```
 my_project/
+|   .gitignore
 │   composer.json
 │   composer.lock
 │   common.php
@@ -161,7 +154,7 @@ to
     </testsuite>
 </testsuites>
 ```
-This will change the folder of the test coverage.
+This will change the path to the test coverage folder.
 
 [^ Back to top](lesson_1.md#what-you-will-learn)
 
@@ -218,7 +211,7 @@ Run the following command:
 ```bash
 composer test-lint
 ```
-If it works then no error or output will be reported
+If it works then no errors will be reported
 
 The PHP Code Sniffer also comes with a command that will automatically fix some linting errors.  This command is called `phpcbf`. To run `phpcbf` enter the following in the terminal and press enter:
 ```bash
