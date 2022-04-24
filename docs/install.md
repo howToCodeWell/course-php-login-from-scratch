@@ -36,7 +36,7 @@ Note: Using configuration file /home/pfwd/code/course-php-login-master/project/p
 PHPUnit 9.5.11 by Sebastian Bergmann and contributors.
 
 Runtime:       PHP 8.0.14
-Configuration: /home/pfwd/code/course-php-login-master/project/phpunit.xml
+Configuration: /home/pfwd/code/course-php-login/project/phpunit.xml
 
 ............                                                      12 / 12 (100%)
 
