@@ -22,7 +22,7 @@
 
 Create a new file called `main.css` in the assets folder.
 ```
-project/
+my_project/
 │   .gitignore
 └───.phpunit.cache/
 │   coding_standard.xml

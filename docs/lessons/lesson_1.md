@@ -24,11 +24,12 @@
 12. [Check the folder structure](lesson_1.md#check-the-folder-structure)
 
 ## Project setup
-Create a new folder called `project`
+Create a new folder called `my_project`.
+
 Inside this folder create the following subdirectories
 
 ```
-project/
+my_project/
 └───config/
 └───public/
 |    └───assets/
@@ -56,7 +57,7 @@ A single PHP file will be used to hold common functions.  Create a file called `
 In order to install the required PHP packages we need to install a PHP package manager called Composer.  Download composer if you haven't done so already. This can be downloaded from [their website](https://getcomposer.org/).
 Once composer has been installed you should have a `composer.phar` file. Move this file so it is on Your system `$PATH`. Follow the documentation the on [the Composer](https://getcomposer.org/) for a guide.
 ```
-project/
+my_project/
 │   common.php
 └───config/
 └───public/
@@ -103,7 +104,7 @@ Create a `composer.json` file in the project root and include `phpunit/phpunit`,
 ```
 
 ```
-project/
+my_project/
 │   composer.json
 │   common.php
 └───config/
@@ -123,7 +124,7 @@ composer install
 ```
 This will create a vendor directory in the project root that contains the required packages. This command will also create a `composer.lock` file which contains meta information about the packages that have been installed
 ```
-project/
+my_project/
 │   composer.json
 │   composer.lock
 │   common.php
@@ -181,7 +182,7 @@ No tests executed!
 
 You should also see a folder called `.phpunit.cache` in the project root
 ```
-project/
+my_project/
 │   .gitignore
 └───.phpunit.cache/
 │   composer.json
@@ -280,7 +281,7 @@ These are the following commands available in composer:
 ## Check the folder structure
 Your project folder should look like this.  If it doesn't then please review steps above.
 ```
-project/
+my_project/
 │   .gitignore
 └───.phpunit.cache/
 │   coding_standard.xml

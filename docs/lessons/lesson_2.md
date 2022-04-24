@@ -18,7 +18,7 @@
 
 Create a new file called `login.php` in the public folder.
 ```
-project/
+my_project/
 │   .gitignore
 └───.phpunit.cache/
 │   coding_standard.xml

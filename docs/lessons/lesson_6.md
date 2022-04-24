@@ -17,7 +17,7 @@
 ## Create user config
 Create the file `userConfig.php` in the `config` folder
 ```
-project/
+my_project/
 │   .gitignore
 └───.phpunit.cache/
 │   coding_standard.xml
