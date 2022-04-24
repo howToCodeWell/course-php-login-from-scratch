@@ -7,7 +7,7 @@ This course teaches how to login, logout and secure web pages using sessions in 
 - How to create a Makefile to automate repetitive commands
 - How to write unit tests using TDD
 - How to configure and run PHPStan to test the project
-- How to configure and run PHPcs and PHPcbf to check the project for code smells
+- How to configure and run PHP_CodeSniffer and PHP_CodeSniffer Beautifier and Fixer to check the project for code smells
 - How to create a HTML login form
 - PHP session management
 - How to secure PHP pages using sessions
