@@ -14,23 +14,27 @@
 
 ## Get a users order
 To get a users order the `getOrders` function needs to be called with a username.
-In this lesson we will hard code the username. In a future lessons this username will be dynamically set to the username of the logged in user.
+In this lesson we will hard code the username. In a future lesson this username will be dynamically set to the username of the logged in user.
 
-To do this, add the following to the `dashboard.php`
+To do this, add the following to the `public/dashboard.php`
 ```php
+<?php
+require_once '../common.php';
+
 $userName = 'howtocodewell1';
 $orders = getOrders($userName);
+?>
 ```
 
 Each order will have a set of items.  These order items are held in the `items` element of the `order` array. 
-To get the order items add the following to `dashboard.php`
+To get the order items add the following to `public/dashboard.php` under the `$orders` assignment
 ```php
 $items = $orders['items'];
 ```
 
 ## Display the username
 
-To display the username replace the hardcoded username in `dashboard.php` with the value of `$username` like so
+To display the username replace the hardcoded username in `public/dashboard.php` with the value of `$username` like so
 
 ```html
 <header>
@@ -41,7 +45,7 @@ To display the username replace the hardcoded username in `dashboard.php` with t
 [^ Back to top](lesson_8.md#what-you-will-learn)
 
 ## Display the order items
-Replace the hardcoded order items in the `dashboard.php` table with those from `$items`.
+Replace the hardcoded order items in the `public/dashboard.php` table with those from the `$items` variable.
 Each item will need its own row in the table. Create a `foreach` loop in the `<tbody>` that prints out three table cells that hold the items name, price and date ordered.
 
 ```html
@@ -84,7 +88,8 @@ Note: Using configuration file /code/howtocodewell/courses/course-php-login/proj
 
 This error is due to the missing offest `items` in the variable `$items`. We know that this is an array however it technically could be `null` as the user may not exist or the user may not have any orders.
 To fix this we need to set a default value for `$items` which will default to an empty array.
-Adjust the `$items` variable assignment to use the nullish coalescing operator `??` to set a blank array if the value is `null`.
+Adjust the assignment of the `$items` variable in `public/dashboard.php` to use the nullish coalescing operator `??` to set a blank array if the value is `null`.
+
 ```php
 $items = $orders['items'] ?? [];
 ```
@@ -104,7 +109,7 @@ Create two CSS classes in `public/assets/main.css` that will handle the alternat
 }
 ```
 
-Adjust the `foreach` loop in `dashboard.php` to increment a counter.
+Adjust the `foreach` loop in `public/dashboard.php` to increment a counter.
 Create a variable called `$counter` above the `foreach` loop and set its initial value to `0`.
 Within the `foreach` loop increment the value of `$counter` for every iteration.
 ```php
@@ -120,7 +125,7 @@ Within the `foreach` loop increment the value of `$counter` for every iteration.
         </tr>
     <?php endforeach; ?>
 ```
-Create a variable called `rowClassSuffix` which will either be assigned the value of `even` or `odd`. This will be set to `even` when the `$counter` is divisible by two. If `$counter` cannot be divided by two then the value of `$rowClassSuffix` will be `odd`.
+Create a variable called `$rowClassSuffix` which will either be assigned the value of `even` or `odd`. This will be set to `even` when the `$counter` is divisible by two. If `$counter` cannot be divided by two then the value of `$rowClassSuffix` will be `odd`.
 Use the modulus `%` operator in the if statement. This check is performed like so
 ```php
 if($counter % 2 === 0) {
@@ -133,10 +138,9 @@ To simplify this we can use a ternary statement like so:
 ```php
 $rowClassSuffix = ($counter % 2 === 0)  ? 'even' : 'odd';
 ```
-The `$rowClassSuffix` will be concocted with the string `row-` to create a CSS class name which wil be assigned to the table row.
+The `$rowClassSuffix` will be concatenated with the string `row-` to create a CSS class name which wil be assigned to the table row.
 Print the dynamic class name to the table row like so.
 ```php
-<tbody>
 <?php
 $counter = 0;
 foreach ($items as $item) :
@@ -152,11 +156,12 @@ foreach ($items as $item) :
 <?php endforeach; ?>
 </tbody>
 ```
-Your dashboard.php should now look like this:
+Your `public/dashboard.php` should now look like this:
 
 ```php
-
 <?php
+require_once '../common.php';
+
 $userName = 'howtocodewell1';
 $orders = getOrders($userName);
 $items = $orders['items'] ?? [];
@@ -200,6 +205,8 @@ $items = $orders['items'] ?? [];
 </body>
 </html>
 ```
+Run the webserver and check the output of `dashboard.php`
+
 [^ Back to top](lesson_8.md#what-you-will-learn)
 
 [<<< Go back to readme](../../README.md) | [<< Go to lesson index](index.md) | [< Go to previous lesson](lesson_7.md) | [Go to next lesson >](lesson_9.md)

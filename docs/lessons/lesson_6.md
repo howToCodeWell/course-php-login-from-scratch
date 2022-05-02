@@ -57,7 +57,7 @@ return [
 
 ```
 
-This is a nested associative array where the first element index is the user reference. For example the first user is referenced by the index `user_1` and the second user is referenced by the index `user_2`
+This is a nested associative array where the index is the user reference. For example the first user is referenced by the index `user_1` and the second user is referenced by the index `user_2`
 The user has two elements. The `username` and `password`. These will be used to identify the user during login.
 
 ## Include user config
@@ -76,7 +76,7 @@ define('USER_CONFIG', $userConfig);
 
 ## Get a user
 We need to create a function that will return the user reference of a given username and password.
-Create a `tests/UserTest.php`
+Create a `tests/UserTest.php` file.
 ```
 project/
 │   .gitignore
@@ -123,7 +123,7 @@ public function testGetUserWithEmptyCredentials(): void
     $this->assertNull(getUser('', ''));
 }
 ```
-Run the tests `composer tests`
+Run the tests `composer test-unit`
 
 You will get an error similar to this
 ```bash
@@ -143,10 +143,10 @@ function getUser(string $username, string $password): ?string
 }
 ```
 This function takes two string parameters.  The first parameter is the `$username` and the second is the `$password`.
-The function will return the user reference from the `$userConfig`.  If a user hasn't been found  then `null` will be returned.
-Currently, this function only returns `null` which is acceptable for our failing test.
+The function will return the user reference from the `$userConfig` variable.  If a user hasn't been found then `null` will be returned.
+Currently, this function only returns `null` which is acceptable for our test.
 
-Run the tests again `composer tests`
+Run the tests again `composer test-unit`
 This will still throw an error because the second issue hasn't been resolved.
 
 To fix this error, create the file `tests/bootstrap.php` and add the following
@@ -157,11 +157,11 @@ require_once dirname(__FILE__) . '/../common.php';
 ```
 This bootstrap file will require the autoloader from vendor and our `common.php` file.
 
-To include this boostrap file in our tests open `phpunit.xml` and change `bootstrap="vendor/autoload.php"` to `bootstrap="tests/bootstrap.php"` and re-run `composer tests`. 
+To include this boostrap file in our tests open `phpunit.xml` and change `bootstrap="vendor/autoload.php"` to `bootstrap="tests/bootstrap.php"` and re-run `composer test-unit`. 
 
 The test should now pass.
 
-Add another test to `UserTest.php` that checks for a correct username and password.
+Add another test to `tests/UserTest.php` that checks for a correct username and password.
 
 ```php
 public function testGetUserWithCorrectCredentials(): void
@@ -172,7 +172,7 @@ public function testGetUserWithCorrectCredentials(): void
 Here we are looking for the return of the user reference that corresponds to the user that has the username of `howtocodewell1` and password `testHTCW`. 
 In this example the function `getUser()` should return the user reference `user_1`.
 
-When re-running `composer tests` you should get the following error:
+When re-running `composer test-unit` you should get the following error:
 ```bash
 There was 1 failure:
 
@@ -180,8 +180,8 @@ There was 1 failure:
 Failed asserting that null is identical to 'user_1'.
 ```
 
-To make the test pass the body of `getUser` function needs to be adjusted to find the correct user.
-Change the `getUser` function to look like this:
+To make the test pass the body of the `getUser` function needs to be adjusted to find the correct user.
+Change the `getUser` function in `common.php` to look like this:
 ```php
 function getUser(string $username, string $password): ?string
 {
@@ -196,11 +196,11 @@ function getUser(string $username, string $password): ?string
 Here we are looping over the constant `USER_CONFIG` that we defined earlier and pulling out the `$userData`. The `$userKey` variable holds the user reference of each user.
 Once the login is submitted we need check the supplied `$username` against the `$userData['username']` and the supplied `$password` against `$userData['password']`. If both match then we can return the `$userKey`. 
 
-After changing `common.php` re-run `composer tests`.  All tests should now pass.
+After changing `common.php` re-run `composer test-unit`.  All tests should now pass.
 
 So far we have tested getting a user with correct details and empty details. Let's also test incorrect details.
 
-Create the following test in `UserTest.php` 
+Create the following test in `tests/UserTest.php` 
 
 ```php
 public function testGetUserWithIncorrectCredentials(): void
@@ -209,14 +209,14 @@ public function testGetUserWithIncorrectCredentials(): void
 }
 ```
 This test replicates submitting the wrong credentials on the login form. This should be covered by the first test that we created earlier but it is always a good idea to capture different edge cases.
-Re-run `composer tests`. All tests should still pass.
+Re-run `composer test-unit`. All tests should still pass.
 
 
 [^ Back to top](lesson_6.md#what-you-will-learn)
 
 ## Submit the form
-Now all the tests are passing we can call `getUser` when the login form has been submitted.
-Open `login.php` and update the PHP code to look like this:
+Now all the tests are passing we can call the `getUser` function when the login form has been submitted.
+Open `public/login.php` and update the PHP code to look like this:
 ```php
 <?php
 require_once '../common.php';
@@ -240,14 +240,14 @@ if ($hasSubmitted) {
 
 ?>
 ```
-Here we are calling `getUser` when the form has been submitted (when `$hasSubmitted === true`). The supplied `$username` and `$password` is passed to `getUser` and `$userKey` is returned if found.  If the user is not found then `NULL` is returned.
+Here we are calling the `getUser` function when the form has been submitted (when `$hasSubmitted === true`). The supplied `$username` and `$password` is passed to the `getUser` function and the `$userKey` is returned if found.  If the user is not found then `NULL` is returned.
 We can check if the `$userKey` is not `null`, set the session and redirect the user to the secured area.  If `$userKey` is `null` then we can display an error on the page.
 
 
 [^ Back to top](lesson_6.md#what-you-will-learn)
 
 ## Display error when incorrect details are submitted
-Alter `login.php` with the following:
+Alter `public/login.php` with the following:
 ```php
 <?php
 require_once '../common.php';
@@ -283,7 +283,7 @@ We can display the error message on the page like so:
         <div class="form-content">
 ```
 
-Update the `main.css` add the following `alert-error` class.
+Update the `assets/main.css` add the following `alert-error` class.
 ```css
 .alert-error {
     background-color: darkred;
@@ -292,7 +292,7 @@ Update the `main.css` add the following `alert-error` class.
     padding: 5px;
 }
 ```
-Re-run `composer tests` to make sure everything is OK and then run the webserver. 
+Re-run `composer test` to make sure everything is OK and then run the webserver. 
 Try logging in with correct and incorrect details.
 
 [^ Back to top](lesson_6.md#what-you-will-learn)

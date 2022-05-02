@@ -156,6 +156,13 @@ to
 ```
 This will change the path to the test coverage folder.
 
+Remove the following from `phpunit.xml`
+```shell
+forceCoversAnnotation="true"
+beStrictAboutCoversAnnotation="true"
+```
+This will allow tests to be ran without the `@covers` annotation.
+
 [^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Run PHPUnit
@@ -198,7 +205,9 @@ Create a xml file called `coding_standard.xml` in the project root and include t
 <?xml version="1.0"?>
 <ruleset name="course">
     <description>Course coding standard.</description>
-    <rule ref="PSR2" />
+    <rule ref="PSR2" >
+        <exclude name="PSR1.Files.SideEffects" />
+    </rule>
 </ruleset>
 ```
 This will ensure that we are following the PSR2 coding standard. We can add other rules to the ruleset if we want to. 
