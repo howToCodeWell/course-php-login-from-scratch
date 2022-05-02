@@ -1,5 +1,4 @@
 <?php
-// phpcs:disable PSR2.Files.SideEffects.FoundWithSymbols
 $userConfig = include_once 'config/userConfig.php';
 $orderConfig = include_once 'config/orderConfig.php';
 
