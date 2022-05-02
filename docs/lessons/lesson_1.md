@@ -156,6 +156,13 @@ to
 ```
 This will change the path to the test coverage folder.
 
+Remove the following from `phpunit.xml`
+```shell
+forceCoversAnnotation="true"
+beStrictAboutCoversAnnotation="true"
+```
+This will allow tests to be ran without the `@covers` annotation.
+
 [^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Run PHPUnit
