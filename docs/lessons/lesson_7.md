@@ -1,4 +1,4 @@
-# Lesson 7: Create PHP order config
+# Lesson 7: Create the PHP order config
 
 # What you will learn
 - Array shapes
@@ -39,7 +39,7 @@ my_project/
 [^ Back to top](lesson_7.md#what-you-will-learn)
 
 ## Add order array data
-In `orderConfig.php` add the following:
+In `config/orderConfig.php` add the following:
 ```php
 <?php
 
@@ -83,17 +83,17 @@ return [
 
 
 ```
-This is a nested associative array or arrays. Each sub array has a `user` element that corresponds to a `username`.
+This is a nested associative array of arrays. Each sub array has a `user` element that corresponds to a `username`.
 There is also an `items` array which holds the order items for that user.
 
 ## Include order config
-In `common.php` add the following:
+In `common.php` add the following under the `$userConfig` include
 ```php
 $orderConfig = include_once 'config/orderConfig.php';
 ```
-This will include the `orderConfig.php` file and assigns the array to the variable `$orderConfig`
+This will include the `config/orderConfig.php` file and assigns the array to the variable `$orderConfig`
 
-Define the named constant `ORDER_CONFIG`  in `common.php`
+Define the named constant `ORDER_CONFIG`  in `common.php` under the `USER_CONFIG` definition
 ```php
 define('ORDER_CONFIG', $orderConfig);
 ```
@@ -144,7 +144,7 @@ class OrdersTest extends TestCase
 The function that we will create will be called `getOrders()`. This will return the orders of a given username.  
 
 Create a failing test that checks that `null` is returned when an incorrect username is supplied.
-In `OrdersTest.php` add the following test
+In `tests/OrdersTest.php` add the following test
 
 ```php
 public function testGetOrdersWithEmptyUsername(): void
@@ -152,7 +152,7 @@ public function testGetOrdersWithEmptyUsername(): void
     $this->assertNull(getOrders(''));
 }
 ```
-After running `composer test` you should see the following error
+After running `composer test-unit` you should see the following error
 ```php
 There was 1 error:
 
@@ -160,7 +160,7 @@ There was 1 error:
 Error: Call to undefined function Test\getOrders()
 
 ```
-This is because the getOrders function hasn't been created yet.
+This is because the `getOrders` function hasn't been created yet.
 
 In `common.php` create the following `getOrders` function
 ```php
@@ -169,11 +169,11 @@ function getOrders(string $userName): ?array
     return null;
 }
 ```
-Run `composer test` again the and the tests should pass.
+Run `composer test-unit` again the and the tests should pass.
 
 Now we need to return the correct order for a given username.
 
-Create the following failing test in `OrdersTest.php` that should return an array of order items for the user with the username of `howtocodewell2`.
+Create the following failing test in `tests/OrdersTest.php` that should return an array of order items for the user with the username of `howtocodewell2`.
 
 ```php
 public function testGetOrdersWithCorrectUsername(): void
@@ -181,7 +181,7 @@ public function testGetOrdersWithCorrectUsername(): void
     $this->assertIsArray(getOrders('howtocodewell2'));
 }
 ```
-Run `composer test` and notice a similar failure message:
+Run `composer test-unit` and notice a similar error message:
 ```php
 There was 1 failure:
 
@@ -189,9 +189,9 @@ There was 1 failure:
 Failed asserting that null is of type "array".
 
 ```
-To fix the test we must update the body of `getOrders()` to find the correct order of the given username.
+To fix the test we must update the body of the `getOrders()` function to find the correct order of the given username.
 
-Update the `getOrders` function in `common.php`
+Update the `getOrders` function in `common.php` with the following code
 ```php
 function getOrders(string $userName): ?array
 {
@@ -203,9 +203,9 @@ function getOrders(string $userName): ?array
     return null;
 }
 ```
-This loops over the `ORDER_CONFIG` array and looks for the `user` element that matches the supplied `$username` variable. If a match is found then the `$order` is returned. If no matches are found then `null` is returned.
+This loops over the `ORDER_CONFIG` array and looks for the `user` element that matches the supplied `$username` parameter. If a match is found then the `$order` is returned. If no matches are found then `null` is returned.
 
-Re run `composer test` and notice the following error with PHPStan.  
+Re-run `composer test` and notice the following error with PHPStan.  
 ```bash
 ./vendor/bin/phpstan
 Note: Using configuration file /code/howtocodewell/courses/course-php-login/project/phpstan.neon.
@@ -222,7 +222,7 @@ Note: Using configuration file /code/howtocodewell/courses/course-php-login/proj
  [ERROR] Found 1 error                                                                                                  
 ```
 This error happens because we are trying to access array elements without defining the shape of the returned array.
-To fix this error add the following PHP docblock to the `getOrders` function in `common.php`
+To fix this error add the following return annotation the `getOrders()` docblock in `common.php`
 
 ```php
 /**
@@ -240,7 +240,7 @@ To fix this error add the following PHP docblock to the `getOrders` function in 
  *
  */
 ```
-The return part of the docblock defines the shape of the array with the nested array keys and the data types.
+The return part of the docblock defines the shape of the array with the nested array keys and their data types.
 Re-run `composer test`. All test should pass.
 
 [^ Back to top](lesson_7.md#what-you-will-learn)
