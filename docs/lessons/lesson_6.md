@@ -215,8 +215,8 @@ Re-run `composer test-unit`. All tests should still pass.
 [^ Back to top](lesson_6.md#what-you-will-learn)
 
 ## Submit the form
-Now all the tests are passing we can call `getUser` when the login form has been submitted.
-Open `login.php` and update the PHP code to look like this:
+Now all the tests are passing we can call the `getUser` function when the login form has been submitted.
+Open `public/login.php` and update the PHP code to look like this:
 ```php
 <?php
 require_once '../common.php';
@@ -240,14 +240,14 @@ if ($hasSubmitted) {
 
 ?>
 ```
-Here we are calling `getUser` when the form has been submitted (when `$hasSubmitted === true`). The supplied `$username` and `$password` is passed to `getUser` and `$userKey` is returned if found.  If the user is not found then `NULL` is returned.
+Here we are calling the `getUser` function when the form has been submitted (when `$hasSubmitted === true`). The supplied `$username` and `$password` is passed to the `getUser` function and the `$userKey` is returned if found.  If the user is not found then `NULL` is returned.
 We can check if the `$userKey` is not `null`, set the session and redirect the user to the secured area.  If `$userKey` is `null` then we can display an error on the page.
 
 
 [^ Back to top](lesson_6.md#what-you-will-learn)
 
 ## Display error when incorrect details are submitted
-Alter `login.php` with the following:
+Alter `public/login.php` with the following:
 ```php
 <?php
 require_once '../common.php';
@@ -283,7 +283,7 @@ We can display the error message on the page like so:
         <div class="form-content">
 ```
 
-Update the `main.css` add the following `alert-error` class.
+Update the `assets/main.css` add the following `alert-error` class.
 ```css
 .alert-error {
     background-color: darkred;
@@ -292,7 +292,7 @@ Update the `main.css` add the following `alert-error` class.
     padding: 5px;
 }
 ```
-Re-run `composer tests` to make sure everything is OK and then run the webserver. 
+Re-run `composer test` to make sure everything is OK and then run the webserver. 
 Try logging in with correct and incorrect details.
 
 [^ Back to top](lesson_6.md#what-you-will-learn)
