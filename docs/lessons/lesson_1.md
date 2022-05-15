@@ -254,7 +254,7 @@ parameters:
 [^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Run PHPStan
-Let's run PHPStan to make sure it is set up correctly. Run the following command:
+Let's run PHPStan to make sure it is set-up correctly. Run the following command:
 ```bash
 composer test-stan
 ```
