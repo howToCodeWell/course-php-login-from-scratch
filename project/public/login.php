@@ -30,8 +30,6 @@ if ($hasSubmitted) {
     <link rel="stylesheet" href="assets/main.css">
 </head>
 <body>
-
-
 <main>
     <form id="loginForm" method="post" action="login.php">
         <?php if (!empty($error)) : ?>
