@@ -212,6 +212,10 @@ Create a xml file called `coding_standard.xml` in the project root and include t
 ```
 This will ensure that we are following the PSR2 coding standard. We can add other rules to the ruleset if we want to. 
 
+The PHP Code Sniffer also includes the PHP Beautifier and Fixer which can be used to automatically format the code.
+
+To clean the code run `composer clean`
+
 [^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Run PHP Code Sniffer
@@ -250,7 +254,7 @@ parameters:
 [^ Back to top](lesson_1.md#what-you-will-learn)
 
 ## Run PHPStan
-Let's run PHPStan to make sure it is set up correctly. Run the following command:
+Let's run PHPStan to make sure it is set-up correctly. Run the following command:
 ```bash
 composer test-stan
 ```

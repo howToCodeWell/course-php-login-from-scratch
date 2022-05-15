@@ -1,9 +1,9 @@
 # Install
 
-- [Set up the project files for reference](#set-up-the-project-files-for-reference)
-- [Set your project for learning](#set-your-project-for-learning)
+- [Set-up the project files for reference](#set-up-the-project-files-for-reference)
+- [Set-up your project for learning](#set-up-your-project-for-learning)
 
-## Set up the project files for reference
+## Set-up the project files for reference
 1. Ensure that your system meets the [system requirements](requirements.md)
 2. Download the latest release from [howtocodewell.net](https://howtocodewell.net)
 3. Change to the project directory
@@ -55,7 +55,7 @@ You should see a webpage similar to this
 
 ![Login screen](images/login_screen.png) 
 
-## Set your project for learning
+## Set-up your project for learning
 
 1.  Create a directory for your custom project
 ```bash

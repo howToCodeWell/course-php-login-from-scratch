@@ -2,7 +2,7 @@
 
 # What you will learn
 - Starting PHP sessions
-- Storing data from PHP sessions
+- Storing data in PHP sessions
 - Retrieving data from PHP sessions
 
 # Lesson notes
@@ -12,8 +12,8 @@
 - [Displaying the users order items](lesson_9.md#displaying-the-users-order-items)
 
 ## Starting a session
-Sessions are started when `session_start()` is called. This tends to be the first function call made by an application as sessions as usually started at the beginning of a request.
-In `login.php` add `session_start()` before the `common.php` include.
+Sessions are started when `session_start()` is called. This tends to be the first function call made by an application as sessions usually are started at the beginning of a request.
+In `public/login.php` add `session_start()` before the `common.php` include.
 ```php
 <?php
 session_start();
@@ -22,8 +22,8 @@ require_once '../common.php';
 
 Values can now be stored against the session and retrieved on other pages.  We can use this to log a user into the application.
 
-The session must also be started on the `dashboard.php`. This allows session data to be shared across the login and dashboard pages.
-Add the following in `dashboard.php`
+The session must also be started on the `public/dashboard.php`. This allows session data to be shared across the login and dashboard pages.
+Add the following in `public/dashboard.php`
 
 ```php
 <?php
@@ -34,10 +34,10 @@ require_once '../common.php';
 [^ Back to top](lesson_9.md#what-you-will-learn)
 
 ## Securing the dashboard
-During login, data will be stored in the session. This data will tell the application if the user has logged in or not and has been granted access to the dashboard.
+During login, data will be stored in the session. This data will tell the application if the user has logged in and has been granted access to the dashboard.
 A function is need to check if the user has logged in.  This will return a boolean.
 
-Create a new test file `tests/LoginTest.php`. Add the following failing tests
+Create the test file `tests/LoginTest.php` and add the following failing test.
 ```php
 <?php
 
@@ -56,9 +56,9 @@ class LoginTest extends TestCase
 }
 
 ```
-This will call a function called `isLoggedIn` and check that it return `false` by default.  
+This test will call a function called `isLoggedIn` and check that it return is `false` by default.  
 
-Run `composer test`. The tests should fail with a similar error message
+Run `composer test-unit`. The tests should fail with a similar error message
 
 ```php
 There was 1 error:
@@ -71,16 +71,18 @@ To fix this error, create the function `isLoggdIn` in  `common.php`
 ```php
 function isLoggedIn(): bool
 {
-    return false
+    return false;
 }
 ```
-Run `composer test` again and all the tests should pass.
-At the moment this function is just returning false. It needs to check if the user has been logged in and return true if the user has logged in. 
+Run `composer test-unit` again and all the tests should pass.
+
+At the moment this function is just returning false. It needs to check if the user login state and return `true` if the user is logged in. 
 
 When the user logs into the application their user reference will be stored in the session. We can check for the existence of this session variable.
-Stored session data is contained in an array that can be accessed via the `$_SESSION` variable.  This is a special inbuilt PHP variable.
 
-Update the `isLoggedIn` function like so
+Stored session data is contained in an array that can be accessed via the `$_SESSION` variable.  This is a special inbuilt PHP system variable that hold session data.
+
+Update the `isLoggedIn` function in `common.php` like so
 
 ```php
 function isLoggedIn(): bool
@@ -92,18 +94,18 @@ function isLoggedIn(): bool
 The variable `$userKey` will be assigned the value stored in `$_SESSION['user_key']` or `null` if nothing is found.
 `$userKey` is then checked for `null`. If it is not `null` then `true` is returned.  This means there is a session with a stored `user_key`. If no user reference is stored then `$userKey` will be `null` and in this case `false` will be returned.
 
-Run `composer test` again and all the tests should continue to pass.
+Run `composer test-unit` again and all the tests should continue to pass.
 
 At this point `isLoggedIn` will always return false. The next test will be to check that when a valid session is found `isLoggedIn` will return `true`.
 
-Create the following failing test in `LoginTest.php`
+Add the following failing test in `tests/LoginTest.php`
 ```php
 public function testIsLoggedIn(): void
 {
     $this->assertTrue(isLoggedIn());
 }
 ```
-Run `composer tests` and you should see a similar error
+Run `composer test-unit` and you should see a similar error
 ```bash
 There was 1 failure:
 
@@ -111,12 +113,12 @@ There was 1 failure:
 Failed asserting that false is true.
 ```
 
-The test is failing because `isLoggedIn()` is always returning false.
-To mock a session add the following lines to `testIsLoggedIn`
-1. Before the call to `isLoggedIn()` add the line to set the session `user_key` value. `$_SESSION['user_key'] = 'foobar';`
-2. After the call to `isLoggedIn()` unset the session value. ` unset($_SESSION['user_key']);`
+The test is failing because the `isLoggedIn()` function is always returning false.
+To mock a session add the following lines to the `testIsLoggedIn` test method.
+1. Before the call to `isLoggedIn()` add a line to set the session value of `user_key`. `$_SESSION['user_key'] = 'foobar';`
+2. After the call to `isLoggedIn()` unset the session value. `unset($_SESSION['user_key']);`
 
-`testIsLoggedIn` should now look like this
+The `testIsLoggedIn` tst method should now look like this
 ```php
 public function testIsLoggedIn(): void
 {
@@ -127,9 +129,9 @@ public function testIsLoggedIn(): void
 }
 ```
 
-Run `composer test` again and all tests should pass.
+Run `composer test-unit` again and all tests should now pass.
 
-To check if the user has logged into the application `isLoggedIn()` can now be called from the `dashboard.php`
+To check if the user has logged into the application `isLoggedIn()` can now be called from the `public/dashboard.php`
 ```php
 <?php
 session_start();
@@ -137,7 +139,7 @@ require_once '../common.php';
 
 $hasLoggedIn = isLoggedIn();
 if (false === $hasLoggedIn) {
-    echo 'User has not logged in!'
+    echo 'User has not logged in!';
     exit;
 }
 ```
@@ -152,8 +154,8 @@ User has not logged in!
 [^ Back to top](lesson_9.md#what-you-will-learn)
 
 ## Logging into the application
-Alter the body of the if condition in `login.php` and set the sessions `user_key` to null if `$hasSubmitted` is `true`.
-Then alter the body of the inner if condition and set the sessions `user_key` to the value of `$userKey` if it's not `null`.
+Alter the body of the if condition in `public/login.php` and set the sessions `user_key` value to `null` if `$hasSubmitted` is `true`.
+Then alter the body of the inner if condition and set the sessions `user_key` value to the value of `$userKey` if it's not `null`.
 
 ```php
 if ($hasSubmitted) {
@@ -183,8 +185,9 @@ You should now be able to access the users orders.
 ## Displaying the users order items
 
 Now that a user can log into the application it is time to show the correct order items for a given user in the secure dashboard.
-A function called `getUserKey` is needed to return the `user_key` which is stored in the session. Create a failing test in `UserTest.php` called `testGetUserKeyWhenNotSet`.
-This test will check that `null` is returned when the `getUserKey` function is called without a valid login. The unset PHP function will remove any session data that might be stored in the application.
+
+A function called `getUserKey` is needed to return the `user_key` which is stored in the session. Add a failing test in `tests/UserTest.php` called `testGetUserKeyWhenNotSet`.
+This test will check that `null` is returned when the `getUserKey` function is called without a valid login. The `unset` PHP function will remove any session data that might be stored in the application.
 
 ```php
 public function testGetUserKeyWhenNotSet(): void
@@ -194,7 +197,7 @@ public function testGetUserKeyWhenNotSet(): void
 }
 ```
 
-After running `composer test` you should get a similar error message.
+After running `composer test-unit` you should get a similar error message.
 
 ```bash
 There was 1 error:
@@ -203,7 +206,7 @@ There was 1 error:
 Error: Call to undefined function Test\getUserKey()
 ```
 
-To fix the test create the function `getUserKey` in `common.php` which will return the stored `user_key` or `null` if it doesn't exist. 
+To fix the test create the function `getUserKey` in `common.php`. This function will return the stored `user_key` or `null` if it doesn't exist. 
 ```php
 function getUserKey(): ?string
 {
@@ -211,10 +214,11 @@ function getUserKey(): ?string
 }
 ```
 
+Re-run `composer test-unit`. 
 The tests should now pass.
 
-To make sure the correct `user_key` is being returned create a new test in `UserTest.php` called `testGetUserKeyWhenSet`
-This test will set a `user_key` to the session before calling `getUserKey` and checks that it is returned.
+To make sure the correct `user_key` is being returned add a new test in `test/UserTest.php` called `testGetUserKeyWhenSet`
+This test will set a `user_key` to the session before calling the `getUserKey` function and checks that the correct `user_key` is returned.
 ```php
 public function testGetUserKeyWhenSet(): void
 {
@@ -224,19 +228,21 @@ public function testGetUserKeyWhenSet(): void
 }
 ```
 
-All the tests should pass after running `composer test`.
+All the tests should pass after re-running `composer test-unit`.
 
-Now the correct `user_key` is being returned a users order can now be displayed.
+Now that the correct `user_key` is being returned a users order can now be displayed.
 
-A users order is found by passing a username to the `getOrders` function call in `dashboard.php`. At the moment the username has been hardcoded to `howtocodewell1`. 
-Create the failing test called `testGetUserNameWhenNotSet` in `UserTest.php` that attempts to get a username.
+A users order is found by passing a username to the `getOrders` function call in `public/dashboard.php`. At the moment the username has been hardcoded to `howtocodewell1`. 
+
+Create the failing test called `testGetUserNameWhenNotSet` in `tests/UserTest.php` that attempts to get a username.
+
 ```php
 public function testGetUserNameWhenNotSet(): void
 {
     $this->assertEmpty(getUsername());
 }
 ```
-Run `composer test` and you should get a similar error
+Run `composer test-unit` and you should get a similar error
 
 ```bash
 There was 1 error:
@@ -253,12 +259,14 @@ function getUsername(): string
     return (USER_CONFIG[$userKey]['username']) ?? '';
 }
 ```
-This function will get the `$userKey` which could either be a `string` or  `null`. From this `$userKey` the username is returned based on what is stored in the `USER_CONFIG` array.
+This function will get the `$userKey` which could either be a `string` or  `null`. From the `$userKey` the username is returned based on what is stored in the `USER_CONFIG` array.
 If the username cannot be found then `null` will be returned.
 
-All the tests should now pass after running `composer test`.
+All the tests should now pass after re-running `composer test-unit`.
 
-Let's also make sure that a valid username is returned when a `user_key` is set in the session.  Create the following test in `UserTest.php`
+Let's also make sure that a valid username is returned when a `user_key` is set in the session.  
+
+Create the following test in `tests/UserTest.php`
 
 ```php
 public function testGetUsernameWhenSet(): void
@@ -270,10 +278,10 @@ public function testGetUsernameWhenSet(): void
 }
 ```
 
-All the tests should pass after running `composer test`.
+All the tests should pass after re-running `composer test-unit`.
 
-Now the correct username can be returned from a logged in user it is time to update `dashboard.php` to get the correct user order.
-Alter `dashboard.php` and change the hardcoded username to the `getUsername` function call.
+Now the correct username can be returned from a logged-in user it is time to update `public/dashboard.php` to get the correct user order.
+Alter `public/dashboard.php` and change the hardcoded username to the return of the `getUsername` function call.
 
 ```php
 <?php
@@ -291,7 +299,7 @@ $items = $orders['items'] ?? [];
 ?>
 ```
 
-After logging into the application and going to `dashboard.php` in the browser, you should now see the correct order and in the dashboard.
+After logging into the application and going to `public/dashboard.php` in the browser, you should now see the correct order and in the dashboard.
 
 [^ Back to top](lesson_9.md#what-you-will-learn)
 
