@@ -4,11 +4,13 @@
 - How to redirect HTTP requests using the PHP header function
 - How to clear PHP session data
 - How to logout a user
+- How to style HTML links
 
 # Lesson notes
 - [Create the index page](lesson_10.md#create-the-index-page)
 - [Logging out](lesson_10.md#logging-out)
 - [Redirect the login form](lesson_10.md#redirect-the-login-form)
+- [Redirect logged out user from the dashboard](lesson_10.md#redirect-logged-out-user-from-the-dashboard)
 - [Create a logout link](lesson_10.md#create-a-logout-link)
 - [Try the application](lesson_10.md#try-the-application)
 
@@ -161,12 +163,55 @@ if ($hasSubmitted) {
 
 ?>
 ```
+## Redirect logged out user from the dashboard
+
+To redirect a logged out user from the dashboard page alter the `public/dashboard.php` by replacing the `echo` statement with a redirection like so
+```php
+$hasLoggedIn = isLoggedIn();
+if (false === $hasLoggedIn) {
+    header('Location: /index.php');
+    exit;
+}
+```
+This will redirect a logged out user to the index.php page which will redirect the user back to the login page.
+
+
 ## Create a logout link
 In `public/dashboard.php` add a link to `logout.php` in the header HTML element
 ```html
 <header>
     <p>Welcome, <?php echo $userName; ?> <a class="btn" href="logout.php">logout</a></p>
 </header>
+```
+
+Update the `input[type=submit]` rule in `public/assets/main.css` to include the `a.btn` selector like so
+
+```css
+input[type=submit], a.btn {
+    padding: 10px;
+    background-color: #38a169;
+    color: #FFF;
+    font-weight: bold;
+    border: none;
+}
+```
+
+Add the following CSS rule to remove the underline from the link
+```css
+a.btn {
+    text-decoration: none;
+}
+```
+
+Add the following css rule to adjust the submit and link hover states
+```css
+ input[type=submit]:hover {
+    cursor: pointer;
+}
+
+input[type=submit]:hover, a.btn:hover {
+    background-color: dodgerblue;
+}
 ```
 [^ Back to top](lesson_10.md#what-you-will-learn)
 
