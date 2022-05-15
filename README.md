@@ -17,6 +17,7 @@ URL: ~ Place url here ~
 
 - [Requirements](docs/requirements.md)
 - [Install](docs/install.md)
+- [Upgrade](./UPGRADE.md)
 - [Uninstall](docs/uninstall.md)
 - [Lessons](docs/lessons/index.md)
 
