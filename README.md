@@ -13,7 +13,7 @@ This course teaches how to login, logout and secure web pages using sessions in 
 - How to secure PHP pages using sessions
 - How to redirect requests to other pages
 
-URL: ~ Place url here ~
+URL: [https://www.howtocodewell.net/courses/php-login-course](https://www.howtocodewell.net/courses/php-login-course)
 
 - [Requirements](docs/requirements.md)
 - [Install](docs/install.md)
@@ -22,4 +22,13 @@ URL: ~ Place url here ~
 - [Lessons](docs/lessons/index.md)
 
 # Disclaimer
-~ Disclaimer goes here ~
+This project is intended for education use only.  
+
+It is not production ready and should not be used within a production environment.  
+
+# Why there isn't a software license
+- The code must not be distributed
+- The code can be modified
+- The owner of the code is not granted commercial rights to the software
+
+Please see [https://choosealicense.com/no-permission/](https://choosealicense.com/no-permission/)
