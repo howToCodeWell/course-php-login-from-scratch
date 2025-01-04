@@ -13,13 +13,7 @@ This course teaches how to login, logout and secure web pages using sessions in 
 - How to secure PHP pages using sessions
 - How to redirect requests to other pages
 
-URL: [https://www.howtocodewell.net/courses/php-login-course](https://www.howtocodewell.net/courses/php-login-course)
-
-- [Requirements](docs/requirements.md)
-- [Install](docs/install.md)
-- [Upgrade](./UPGRADE.md)
-- [Uninstall](docs/uninstall.md)
-- [Lessons](docs/lessons/index.md)
+URL: [https://howtocodewell.net/course/php-login-from-scratch](https://howtocodewell.net/course/php-login-from-scratch)
 
 # Disclaimer
 This project is intended for education use only.  
